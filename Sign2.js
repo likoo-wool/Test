@@ -23,7 +23,7 @@ async function all() {
 }
 
 //签到
-function GetSign() {
+function GetSign(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
             url : 'https://kandian.wkandian.com/v5/CommonReward/toDouble.json',
@@ -54,7 +54,7 @@ function GetSign() {
 }
 
 //签到翻倍
-function GetSign1() {
+function GetSign1(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
             url : 'https://kandian.wkandian.com/v5/CommonReward/toGetReward.json',
