@@ -109,6 +109,19 @@ function basic(api,body) {
 }
 
 
+function safeGet(data) {
+  try {
+    if (typeof JSON.parse(data) == "object") {
+      return true;
+    }
+  } catch (e) {
+    console.log(e);
+    console.log(`服务器访问数据为空，请检查自身设备网络情况`);
+    return false;
+  }
+}
+
+
 function Env(t, e) {
     class s {
         constructor(t) {
