@@ -35,7 +35,7 @@ async function all() {
 
 
 
-function sign() {
+function GetSign() {
     return new Promise((resolve, reject) => {
         const signurl = {
             url: 'https://kandian.wkandian.com/v5/CommonReward/toGetReward.json',
