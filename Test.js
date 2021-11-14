@@ -26,19 +26,19 @@ async function all() {
 function GetSign(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
-            url : 'https://kandian.wkandian.com/WebApi/TimePacket/getReward',
+            url : 'https://kandian.wkandian.com/v17/Article/readReward.json',
             headers : {
-                "Referer": `https://kd.youth.cn/h5/20200612makeMoney/?access=4G&app-version=3.6.0&app_version=3.6.0&carrier=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&channel=c1031&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7CFrWaxzYGyhbKp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdibOEjKCZsKnEapqGcXY&cookie_id=1320f1f00f3eaaad9f4b2743be9915e7&device_brand=SMARTISAN&device_id=55778744&device_model=SM919&device_platform=android&device_type=android&inner_version=202108181534&mi=0&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&phone_network=4G&phone_sim=1&request_time=1636901752&resolution=1440x2560&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&subv=1.2.2&time=1636901752&uid=59286327&uuid=09fd3eb67a03450bad8732b0e4229bf0&version_code=63&version_name=%E4%B8%AD%E9%9D%92%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7CFrWaxzYGyhbKp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdibOEjKCZsKnEapqGcXY&zqkey_id=1320f1f00f3eaaad9f4b2743be9915e7`
+                
             },
-            body : '',}
+            body : 'access=4G&app-version=3.6.0&app_name=zqkd_app&app_version=3.6.0&carrier=CHN-CT&channel=c1031&device_brand=SMARTISAN&device_id=55778744&device_model=SM919&device_platform=android&device_type=android&dpi=560&inner_version=202108181534&language=zh-CN&memory=5&mi=0&mobile_type=1&net_type=2&network_type=4G&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&request_time=1634393779&resolution=1440x2560&rom_version=MXB48T%20release-keys&s_ad=5XPkPrW1Kghg%3DNhhJuevFM6eILQfl9Bknwsnhq-B1DXzL&s_im=fUJybc31G2V0%3DyRLovNm6a6jeSPxDZPHsdA%3D%3DG4&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&storage=52.62&subv=1.2.2&uid=59286327&version_code=63&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7CFrWaxzYGyhbKp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdgbGFooKart-yapqGcXY&zqkey_id=21a3340390555692a50d0df181fe8b01&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhY2Nlc3MiOiI0RyIsImFwcC12ZXJzaW9uIjoiMy42LjAiLCJhcHBfbmFtZSI6Inpxa2RfYXBwIiwiYXBwX3ZlcnNpb24iOiIzLjYuMCIsImNhcnJpZXIiOiJDSE4tQ1QiLCJjaGFubmVsIjoiYzEwMzEiLCJkZXZpY2VfYnJhbmQiOiJTTUFSVElTQU4iLCJkZXZpY2VfaWQiOiI1NTc3ODc0NCIsImRldmljZV9tb2RlbCI6IlNNOTE5IiwiZGV2aWNlX3BsYXRmb3JtIjoiYW5kcm9pZCIsImRldmljZV90eXBlIjoiYW5kcm9pZCIsImRwaSI6IjU2MCIsImlubmVyX3ZlcnNpb24iOiIyMDIxMDgxODE1MzQiLCJsYW5ndWFnZSI6InpoLUNOIiwibWVtb3J5IjoiNSIsIm1pIjoiMCIsIm1vYmlsZV90eXBlIjoiMSIsIm5ldF90eXBlIjoiMiIsIm5ldHdvcmtfdHlwZSI6IjRHIiwib3BlbnVkaWQiOiI2ZjljMjE4MDJlOWU3ZDY5Iiwib3NfYXBpIjoiMjMiLCJvc192ZXJzaW9uIjoiTVhCNDhUK3JlbGVhc2Uta2V5cyIsInJlcXVlc3RfdGltZSI6IjE2MzQzOTM3NzkiLCJyZXNvbHV0aW9uIjoiMTQ0MHgyNTYwIiwicm9tX3ZlcnNpb24iOiJNWEI0OFQrcmVsZWFzZS1rZXlzIiwic19hZCI6IjVYUGtQclcxS2doZyUzRE5oaEp1ZXZGTTZlSUxRZmw5Qmtud3NuaHEtQjFEWHpMIiwic19pbSI6ImZVSnliYzMxRzJWMCUzRHlSTG92Tm02YTZqZVNQeERaUEhzZEElM0QlM0RHNCIsInNpbSI6IjEiLCJzbV9kZXZpY2VfaWQiOiIyMDIxMDkyOTE2MDUyNzdjZDJlMzVjNzkxMWJjYmIzZjMwYTBmZWNjMjhhMTJiMDFiMjBiODMxYTIxOTc0NCIsInN0b3JhZ2UiOiI1Mi42MiIsInN1YnYiOiIxLjIuMiIsInVpZCI6IjU5Mjg2MzI3IiwidmVyc2lvbl9jb2RlIjoiNjMiLCJ6cWtleSI6Ik1EQXdNREF3TURBd01KQ01wTi13MDlXdGc1LUJiMzZlaDZDUHFIdWFsSWVqbDdDRnJXYXh6WUd5aGJLcDRMRFB5R2w5b25xa2ozWnFZSmE4WTg5OG5haldzSnVwWkxEZGdiR0Zvb0thcnQteWFwcUdjWFkiLCJ6cWtleV9pZCI6IjIxYTMzNDAzOTA1NTU2OTJhNTBkMGRmMTgxZmU4YjAxIn0.g5uYlEEhdke1Wocg_c0Y_Yo2wm21KgMXg_RJEeGeQvAQcvuYvORKHIe4sFfDRklOgz2-BV7VBhsmIMjtgIrY1w',}
         $.post(url, async (err, resp, data) => {
             try {
 
                 const result = JSON.parse(data)
                 if(result.success == true){
-                    console.log('\n✅计时红包奖励获取成功，获得：'+result.items.score +'比特币🧧')
+                    console.log('\n✅随机宝箱奖励获取成功，获得：'+result.items.score +'比特币🎁')
                 }else{
-                    console.log('\n❎计时红包奖励获取失败❎')
+                    console.log('\n❎随机宝箱奖励获取失败❎')
                 }
             } catch (e) {
             } finally {
