@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/liikoo-wool/Test.git ~/Test              
+          git clone https://github.com/likoo-wool/Test.git ~/Test              
       - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
