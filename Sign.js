@@ -53,7 +53,20 @@ function TwentyArticle() {
 
         $.post(request, async (error, response, data) => {
             try {
-                $.log(data);
+                //$.log(data);
+                const result=JSON.parse(data);           
+                if(result.items&&result.items.dialog&&result.items.dialog.score)
+                {
+                    $.log(`签到成功，获得 ${result.items.score} 金币！`);
+                    $.log(`开始执行 ${result.items.button.title} ---`);
+                    await $.wait(30000);
+                    await GetSign1();
+                }
+                else
+                {
+                    $.log(`今日已签到:${JSON.stringify(result)}\n`);
+                }
+                    
             } catch (e) {
                 $.log(e)
             }
