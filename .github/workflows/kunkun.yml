@@ -25,4 +25,4 @@ jobs:
       - name: '【kunkun】'
         run: |
           cd ~/Test 
-          node kunkun1.js  
+          node kunkun2.js  
