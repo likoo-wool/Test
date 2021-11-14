@@ -43,7 +43,7 @@ function kdHost(api, body) {
 
 function GetSign() {
     return new Promise((resolve, reject) => {
-        $.post(kdHost(), async(error, resp, data) => {
+        $.post(kdHost(signbody), async(error, resp, data) => {
             signres = JSON.parse(data);
             if (signres.status == 2) {
                 sub = `签到失败，Cookie已失效‼️`;
