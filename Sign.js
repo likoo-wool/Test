@@ -30,14 +30,14 @@ async function all() {
 //获取签到信息；
 function GetSign() {
     return new Promise((resolve, reject) => {
-        const url = "https://kandian.wkandian.com/v5/CommonReward/toGetReward.json";
+        const url = "https://kandian.wkandian.com/v17/NewTask/getSign.json?uid=59286327";
         const headers = {
-            'device-platform': 'android',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': '1247',
-            'Host': 'kandian.wkandian.com'
+            "Connection": "Keep-Alive",
+            "Accept-Encoding": "gzip",
+            "Host": "kandian.wkandian.com",
+            "User-Agent": "okhttp/3.12.2"
         };
-        const body = "p=rXU6PBNNsHKc=ForGprwD-04dLgfLhY6RGeX-xYK9ZeSCC71w5svlfJomboBHefRzQ5Pg8NMNd5XdIerqkixI50mDIHNrzlwXJFsidSPMTMBoJCb_RcJeKb5iCgmKXmERExkbBL_L_kWjBIP0PaBXvjnRyviG33GBUoB2Z5i6nGLY0F8JccXkqvjelbXwjaoTe3z_DYzCV6Z62FAYPvTJ2iH05bLgQGrDFEv1haDpOTP1oMGRxrJdhN1HmGDDCDWBtLavarNx1s_mKIoTCQdEMrMQlJ9N_YBg3ruxehClZqFpaA7b7OynGbHzZFTQRLZE7D9FqfYVS8xcah4GZzvE7D5SGO-RWDb7rEwVZmT4SCfWt4WfLr0XPY24opz0bGLFOq6YhxAO96Ryeke7zF1t1Oh6h9SA0ngLuqMpOnOFwyVWtBkIYMxqNsdF_T0gwe8Cch967I5kxr6ApM2RV8eOtn0JEQf5NPLPxBbed4aUry3MfRWHtt3mm-xBNXof3_usqQeoMjox0H4SL3txx7BoEJQHasZDgKatmwpkgUspZR--G26CGdT9sx-sA4E4sH0QMPBl7O8OtAuVyw8IPJCUnU8Mrr05-PsW5v0Ei4Uicco1oDO11qptFdECPHI_qgDpEPP90y3xo3ezhHsVal_lVuifL5eP9m2ai47XV44sxPyBGx85NLDU85M4-e3ft4vDIr8idZ5fqRb5k3tVKfXde1-IDjcVpcWWKERawI0Bp3T29AJeG_qfGMNN-UattTGuRTnlSHsbJDva3DQ_V71klih3lIiwQGZo-Rl3AODtr95vE1HC8KmIZQ7NCgafZwzTr26zgT-I5tzsXAzNe1uqTh8EJraCZzI8iGyNaqJIxW1e0HbLhLnAwN-qrn1Vbk1dnmaReyV55lokgKP9hUlUzc54seaga6jeCI81Fv916e-n1ARvfIcYU4F70F0g5hSEgLTQsgLnjW1nLBRznVC1j_Hol2IMn7A-nXxYC5OoPwc96cWo9Id3XL7QFPn-ydoOv353m1zqGXwtGP0QMKIVBTH1Zdp-pM9hLm6igvhK68251vBIKJUBPjTYSHg-87ur9xGnMun5uF5FZVscMBIoyXQ_QdW4pDIH21Np9Y_JGAIaX6nPaDNw2uOd4L7Y0S0B_6m2W8fC9g2SNUrPF-ehSEuXUvwUjRccdEu8aA22NFVvpn91f75eCy1nTYZNbtZPXg==E";
+        const body = "access=4G&app-version=3.6.0&app_name=zqkd_app&app_version=3.6.0&carrier=CHN-CT&channel=c1031&device_brand=SMARTISAN&device_id=55778744&device_model=SM919&device_platform=android&device_type=android&dpi=560&inner_version=202108181534&language=zh-CN&memory=5&mi=0&mobile_type=1&net_type=2&network_type=4G&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&request_time=1634390134&resolution=1440x2560&rom_version=MXB48T%20release-keys&s_ad=VYFg4QJ5A6eY%3DvgmbzvpLDVUgQWhoDokpuhZH1JN2kVPk&s_im=zUJybc31G2V0%3DyRLovNm6a6jeSPxDZPHsdA%3D%3DLa&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&storage=52.62&subv=1.2.2&version_code=63&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7CFrWaxzYGyhbKp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdgbGFooKart-yapqGcXY&zqkey_id=21a3340390555692a50d0df181fe8b01&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhY2Nlc3MiOiI0RyIsImFwcC12ZXJzaW9uIjoiMy42LjAiLCJhcHBfbmFtZSI6Inpxa2RfYXBwIiwiYXBwX3ZlcnNpb24iOiIzLjYuMCIsImNhcnJpZXIiOiJDSE4tQ1QiLCJjaGFubmVsIjoiYzEwMzEiLCJkZXZpY2VfYnJhbmQiOiJTTUFSVElTQU4iLCJkZXZpY2VfaWQiOiI1NTc3ODc0NCIsImRldmljZV9tb2RlbCI6IlNNOTE5IiwiZGV2aWNlX3BsYXRmb3JtIjoiYW5kcm9pZCIsImRldmljZV90eXBlIjoiYW5kcm9pZCIsImRwaSI6IjU2MCIsImlubmVyX3ZlcnNpb24iOiIyMDIxMDgxODE1MzQiLCJsYW5ndWFnZSI6InpoLUNOIiwibWVtb3J5IjoiNSIsIm1pIjoiMCIsIm1vYmlsZV90eXBlIjoiMSIsIm5ldF90eXBlIjoiMiIsIm5ldHdvcmtfdHlwZSI6IjRHIiwib3BlbnVkaWQiOiI2ZjljMjE4MDJlOWU3ZDY5Iiwib3NfYXBpIjoiMjMiLCJvc192ZXJzaW9uIjoiTVhCNDhUK3JlbGVhc2Uta2V5cyIsInJlcXVlc3RfdGltZSI6IjE2MzQzOTAxMzQiLCJyZXNvbHV0aW9uIjoiMTQ0MHgyNTYwIiwicm9tX3ZlcnNpb24iOiJNWEI0OFQrcmVsZWFzZS1rZXlzIiwic19hZCI6IlZZRmc0UUo1QTZlWSUzRHZnbWJ6dnBMRFZVZ1FXaG9Eb2twdWhaSDFKTjJrVlBrIiwic19pbSI6InpVSnliYzMxRzJWMCUzRHlSTG92Tm02YTZqZVNQeERaUEhzZEElM0QlM0RMYSIsInNpbSI6IjEiLCJzbV9kZXZpY2VfaWQiOiIyMDIxMDkyOTE2MDUyNzdjZDJlMzVjNzkxMWJjYmIzZjMwYTBmZWNjMjhhMTJiMDFiMjBiODMxYTIxOTc0NCIsInN0b3JhZ2UiOiI1Mi42MiIsInN1YnYiOiIxLjIuMiIsInVpZCI6IjU5Mjg2MzI3IiwidmVyc2lvbl9jb2RlIjoiNjMiLCJ6cWtleSI6Ik1EQXdNREF3TURBd01KQ01wTi13MDlXdGc1LUJiMzZlaDZDUHFIdWFsSWVqbDdDRnJXYXh6WUd5aGJLcDRMRFB5R2w5b25xa2ozWnFZSmE4WTg5OG5haldzSnVwWkxEZGdiR0Zvb0thcnQteWFwcUdjWFkiLCJ6cWtleV9pZCI6IjIxYTMzNDAzOTA1NTU2OTJhNTBkMGRmMTgxZmU4YjAxIn0.Lf1a3mpDCLnJzV_CIDbt6fWRfMTTZNsBNfcQcMNX_QNLtAZD3ED453RpGpExWdQtRNGLR1E2raasGIa-vurs4g";
         const request = {
             url: url,
             headers: headers,
@@ -72,10 +72,10 @@ function GetSign1() {
     return new Promise((resolve, reject) => {
         const url = "https://kandian.wkandian.com/v5/CommonReward/toDouble.json";
         const headers = {
-            'device-platform': 'android',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': '1247',
-            'Host': 'kandian.wkandian.com'
+            "Connection": "Keep-Alive",
+            "Accept-Encoding": "gzip",
+            "Host": "kandian.wkandian.com",
+            "User-Agent": "okhttp/3.12.2"
         };
         const body = "p=ycTMBiVxDAfc=-Z4t1n9xCHViTEixuAOYRqfylSrDl_tcUQepJ95w98Z5zE2fG97uGoVdkz8FuWpk4kUIsluOXqCO2of-hoinO2C-x-xemO6g43h4k1MM9g2ly5G7Ln5olyn1B9YmXv2ZZWlzlte0mkzEeWXQGOQ3zcIpm2mfRVOPWSo4Mh4bKht7l0Ow3yTv3UVbmon9M1fnz8uwtYzDlZ_YFZfiKgCXYOvIw02ITru1Af3g7GvZGRLR5oW8HwO33Xecefb7SAAnNCVxYgrD38UctoQ4p-WKpgFwxjsi6Gb8mkqNMNeMlsHIgSxB8BK7gnvyasfOJD1LsU0r8ipq-RTRz3qSdCkOu77dY83JIa4MudkVHY6gSq2HX5p_N1d17I3d2KvFlE4rAkAvKNhVPNvcwU-fNj-L7oVPau7qqLwhELys_WkTP5BvQi2Q3ZCW8TMeDbAozzJPJA1_g-v2k7gc9HLZ31N-Wrp_pl9bls1vjwkwT1MZdCzXXeA7tCVSYAWcSpPoD57loaAA5xcsnNiXUSQG5ACO7777dWoYFYh-lrM6Wvsrf3dqHtlAYf2pXFiZcTYGEGp1cILpyg5pDLfb34kuUyyOGWpjAz3daBZzkbBIwk2rUdDhHhZ8igaJZnxUDcpjHsmOZm6qZvreVcI1PACLhvbHF0QPLIXO7qHDEI-yEu5NJD9BQVdWuJcbLBnK_jEHjDHUiAPJFCEmQXDc63RjqGMVOB-0pChV-90JJB7YX_Y4ymruOo5zn6GPrXfNetGFa9zEZa-k4eUXg6i5CnXYcF00rV6ql8Cz-rR2hl-UD-0eJMRfp2UYUXUUOKLogYCUlmAbG1gHUqAI-SsyAgGnS0iWZ9i2_M3On19LsipayqaJXrjhv1HuJAdUXxUxpd-TBUtL-Rns9-8lQfBYNQs-uicglIz9QCSXvtP7ZTLj1CUTe-QXfF5-dy61WRsKqFSfltXOgEEnePfUlwj6TGSJDO51zRur6jDslRNIOS9dqVEbFIr2BDHoiPGIMRVg1Sv00_TaqxbpPB6lMc6NzQq1Hye9xqy8R_7bibFFva4wjLuUpvyHWBOQa6H9k8iJ1GUkgu1zdv91sFRED7tOPH9UsHTAP3Zlnq-lw7HEa3vOf3vLlA21-yQSEVWOkw1qmuseaWNSD0VqkI0oBnF_okjrQbcJjlJVVSzlnV7XoSI-cDjpgNFxH8vtvn_R6ruRLLeiq_gku";
         const request = {
