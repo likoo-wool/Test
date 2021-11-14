@@ -1,7 +1,12 @@
 const jobname = '-RW-'
 const $ = Env(jobname)
 
-const TS = Math.round((new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000) / 1000);
+const qdheader={
+    'device-platform': 'android',
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Length': '1234',
+    'Host': 'kandian.wkandian.com'
+};
 
 let signbody = 'p=rXU6PBNNsHKc=ForGprwD-04dLgfLhY6RGeX-xYK9ZeSCC71w5svlfJomboBHefRzQ5Pg8NMNd5XdIerqkixI50mDIHNrzlwXJFsidSPMTMBoJCb_RcJeKb5iCgmKXmERExkbBL_L_kWjBIP0PaBXvjnRyviG33GBUoB2Z5i6nGLY0F8JccXkqvjelbXwjaoTe3z_DYzCV6Z62FAYPvTJ2iH05bLgQGrDFEv1haDpOTP1oMGRxrJdhN1HmGDDCDWBtLavarNx1s_mKIoTCQdEMrMQlJ9N_YBg3ruxehClZqFpaA7b7OynGbHzZFTQRLZE7D9FqfYVS8xcah4GZzvE7D5SGO-RWDb7rEwVZmT4SCfWt4WfLr0XPY24opz0bGLFOq6YhxAO96Ryeke7zF1t1Oh6h9SA0ngLuqMpOnOFwyVWtBkIYMxqNsdF_T0gwe8Cch967I5kxr6ApM2RV8eOtn0JEQf5NPLPxBbed4aUry3MfRWHtt3mm-xBNXof3_usqQeoMjox0H4SL3txx7BoEJQHasZDgKatmwpkgUspZR--G26CGdT9sx-sA4E4sH0QMPBl7O8OtAuVyw8IPJCUnU8Mrr05-PsW5v0Ei4Uicco1oDO11qptFdECPHI_qgDpEPP90y3xo3ezhHsVal_lVuifL5eP9m2ai47XV44sxPyBGx85NLDU85M4-e3ft4vDIr8idZ5fqRb5k3tVKfXde1-IDjcVpcWWKERawI0Bp3T29AJeG_qfGMNN-UattTGuRTnlSHsbJDva3DQ_V71klih3lIiwQGZo-Rl3AODtr95vE1HC8KmIZQ7NCgafZwzTr26zgT-I5tzsXAzNe1uqTh8EJraCZzI8iGyNaqJIxW1e0HbLhLnAwN-qrn1Vbk1dnmaReyV55lokgKP9hUlUzc54seaga6jeCI81Fv916e-n1ARvfIcYU4F70F0g5hSEgLTQsgLnjW1nLBRznVC1j_Hol2IMn7A-nXxYC5OoPwc96cWo9Id3XL7QFPn-ydoOv353m1zqGXwtGP0QMKIVBTH1Zdp-pM9hLm6igvhK68251vBIKJUBPjTYSHg-87ur9xGnMun5uF5FZVscMBIoyXQ_QdW4pDIH21Np9Y_JGAIaX6nPaDNw2uOd4L7Y0S0B_6m2W8fC9g2SNUrPF-ehSEuXUvwUjRccdEu8aA22NFVvpn91f75eCy1nTYZNbtZPXg==E';
 let signbody1 = 'p=ycTMBiVxDAfc=-Z4t1n9xCHViTEixuAOYRqfylSrDl_tcUQepJ95w98Z5zE2fG97uGoVdkz8FuWpk4kUIsluOXqCO2of-hoinO2C-x-xemO6g43h4k1MM9g2ly5G7Ln5olyn1B9YmXv2ZZWlzlte0mkzEeWXQGOQ3zcIpm2mfRVOPWSo4Mh4bKht7l0Ow3yTv3UVbmon9M1fnz8uwtYzDlZ_YFZfiKgCXYOvIw02ITru1Af3g7GvZGRLR5oW8HwO33Xecefb7SAAnNCVxYgrD38UctoQ4p-WKpgFwxjsi6Gb8mkqNMNeMlsHIgSxB8BK7gnvyasfOJD1LsU0r8ipq-RTRz3qSdCkOu77dY83JIa4MudkVHY6gSq2HX5p_N1d17I3d2KvFlE4rAkAvKNhVPNvcwU-fNj-L7oVPau7qqLwhELys_WkTP5BvQi2Q3ZCW8TMeDbAozzJPJA1_g-v2k7gc9HLZ31N-Wrp_pl9bls1vjwkwT1MZdCzXXeA7tCVSYAWcSpPoD57loaAA5xcsnNiXUSQG5ACO7777dWoYFYh-lrM6Wvsrf3dqHtlAYf2pXFiZcTYGEGp1cILpyg5pDLfb34kuUyyOGWpjAz3daBZzkbBIwk2rUdDhHhZ8igaJZnxUDcpjHsmOZm6qZvreVcI1PACLhvbHF0QPLIXO7qHDEI-yEu5NJD9BQVdWuJcbLBnK_jEHjDHUiAPJFCEmQXDc63RjqGMVOB-0pChV-90JJB7YX_Y4ymruOo5zn6GPrXfNetGFa9zEZa-k4eUXg6i5CnXYcF00rV6ql8Cz-rR2hl-UD-0eJMRfp2UYUXUUOKLogYCUlmAbG1gHUqAI-SsyAgGnS0iWZ9i2_M3On19LsipayqaJXrjhv1HuJAdUXxUxpd-TBUtL-Rns9-8lQfBYNQs-uicglIz9QCSXvtP7ZTLj1CUTe-QXfF5-dy61WRsKqFSfltXOgEEnePfUlwj6TGSJDO51zRur6jDslRNIOS9dqVEbFIr2BDHoiPGIMRVg1Sv00_TaqxbpPB6lMc6NzQq1Hye9xqy8R_7bibFFva4wjLuUpvyHWBOQa6H9k8iJ1GUkgu1zdv91sFRED7tOPH9UsHTAP3Zlnq-lw7HEa3vOf3vLlA21-yQSEVWOkw1qmuseaWNSD0VqkI0oBnF_okjrQbcJjlJVVSzlnV7XoSI-cDjpgNFxH8vtvn_R6ruRLLeiq_gku';
@@ -26,32 +31,36 @@ async function all() {
  
 }
 
-function kdHost(api, body) {
-    return {
-        url: 'https://kandian.wkandian.com/v5/' + api,
-        headers: {
-            'device-platform': 'android',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': '1247',
-            'Host': 'kandian.wkandian.com'
-        },
-        body: body,
-    }
-}
 
 
 
-function GetSign() {
+
+function sign() {
     return new Promise((resolve, reject) => {
-        $.post(kdHost('CommonReward/toGetReward.json',signbody), async(error, resp, data) => {
-            signres = JSON.parse(data);
+        const signurl = {
+            url: 'https://kandian.wkandian.com/v5/CommonReward/toGetReward.json',
+            headers: qdheader,
+            body: signbody,
+        }
+        $.post(signurl, (error, response, data) => {
+            signres = JSON.parse(data)
+            const date = $.time(`MMdd`)
             if (signres.status == 2) {
-                sub = `签到失败，Cookie已失效‼️`;
-                $.msg($.name, sub, "");
+                signresult = `签到失败，Cookie已失效‼️`;
+                $.msg($.name, signresult, "");
                 return;
             } else if (signres.status == 1) {
-                $.desc = `【签到结果】成功 🎉 青豆: +${signres.score}，明日青豆: +${signres.nextScore}\n`;
-                await comApp()
+                signresult = `【签到结果】成功 🎉 明日+${signres.nextScore} `
+                $.setdata(1, 'times')
+                if (firstcheck == undefined || firstcheck != date) {
+                    $.setdata(date, 'signt');
+                }
+            } else if (signres.status == 0) {
+                signresult = `【签到结果】重复`;
+                detail = "";
+                if (runtimes !== undefined) {
+                    $.setdata(`${parseInt(runtimes) + 1}`, 'times')
+                }
             }
             resolve()
         })
