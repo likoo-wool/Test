@@ -28,14 +28,14 @@ async function all() {
 
 function kdHost(api, body) {
     return {
-        url: 'https://kandian.wkandian.com/v5/CommonReward/toGetReward.json',
+        url: 'https://kandian.wkandian.com/v5/' + api,
         headers: {
             'device-platform': 'android',
             'Content-Type': 'application/x-www-form-urlencoded',
             'Content-Length': '1247',
             'Host': 'kandian.wkandian.com'
         },
-        body: signbody,
+        body: body,
     }
 }
 
@@ -43,7 +43,7 @@ function kdHost(api, body) {
 
 function GetSign() {
     return new Promise((resolve, reject) => {
-        $.post(kdHost(signbody), async(error, resp, data) => {
+        $.post(kdHost('CommonReward/toGetReward.json',signbody), async(error, resp, data) => {
             signres = JSON.parse(data);
             if (signres.status == 2) {
                 sub = `签到失败，Cookie已失效‼️`;
