@@ -32,10 +32,10 @@ function GetSign() {
     return new Promise((resolve, reject) => {
         const url = "https://kandian.wkandian.com/v5/CommonReward/toGetReward.json";
         const headers = {
-            "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "Host": "kandian.wkandian.com",
-            "User-Agent": "okhttp/3.12.2"
+            'device-platform': 'android',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': '1247',
+            'Host': 'kandian.wkandian.com'
         };
         const body = signbody;
         const request = {
@@ -72,10 +72,10 @@ function GetSign1() {
     return new Promise((resolve, reject) => {
         const url = "https://kandian.wkandian.com/v5/CommonReward/toDouble.json";
         const headers = {
-            "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "Host": "kandian.wkandian.com",
-            "User-Agent": "okhttp/3.12.2"
+            'device-platform': 'android',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': '1247',
+            'Host': 'kandian.wkandian.com'
         };
         const body = signbody1;
         const request = {
