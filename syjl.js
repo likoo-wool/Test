@@ -23,7 +23,7 @@ async function all() {
 }
 
 //首页奖励
-function GetSign() {
+function GetSign(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
             url : 'https://kandian.wkandian.com/v5/CommonReward/toGetReward.json',
