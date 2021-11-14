@@ -31,10 +31,14 @@ function GetSign() {
     return new Promise((resolve, reject) => {
         const url = "https://ant.xunsl.com/v5/CommonReward/toGetReward.json";
         const headers = {
-            "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "Host": "ant.xunsl.com",
-            "User-Agent": "okhttp/3.12.2"
+		'access': `4G`,
+		'device-platform': `android`,
+		'app-version': `8.1.2`,
+		'Content-Type': `application/x-www-form-urlencoded`,
+		'Host': `ant.xunsl.com`,
+		'Connection': `Keep-Alive`,
+		'Accept-Encoding': `gzip`,
+		'User-Agent': `okhttp/3.12.2`
         };
         const body = signbody;
         const request = {
@@ -71,10 +75,14 @@ function GetSign1() {
     return new Promise((resolve, reject) => {
         const url = "https://ant.xunsl.com/v5/CommonReward/toDouble.json";
         const headers = {
-            "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "Host": "ant.xunsl.com",
-            "User-Agent": "okhttp/3.12.2"
+		'access': `4G`,
+		'device-platform': `android`,
+		'app-version': `8.1.2`,
+		'Content-Type': `application/x-www-form-urlencoded`,
+		'Host': `ant.xunsl.com`,
+		'Connection': `Keep-Alive`,
+		'Accept-Encoding': `gzip`,
+		'User-Agent': `okhttp/3.12.2`
         };
         const body = signbody1;
         const request = {
