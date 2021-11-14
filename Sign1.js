@@ -77,10 +77,15 @@ function GetSign1() {
     return new Promise((resolve, reject) => {
         const url = "https://ant.xunsl.com/v5/CommonReward/toDouble.json";
         const headers = {
-            "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "Host": "ant.xunsl.com",
-            "User-Agent": "okhttp/3.12.2"
+		'request_time': TS,
+		'access': `WIFI`,
+		'device-platform': `android`,
+		'app-version': `8.1.2`,
+		'Content-Type': `application/x-www-form-urlencoded`,
+		'Host': `ant.xunsl.com`,
+		'Connection': `Keep-Alive`,
+		'Accept-Encoding': `gzip`,
+		'User-Agent': `okhttp/3.12.2`
         };
         const body = "p=e6NplMcA3HQU=LusHiTcKlf6WHWTzJlW1GHl7FXW-eVtb6FN4uYeoviDWGMR6xo06ahbN4Pe-Php9T15g5XjKegMxuH1dCczpl0Nr0QghOppQDiv1zpkJAZS6TOueyBx08Beuh35Ycz9WgwMFBXnhxnnov3Lwz_nE5ezaiLkT05LBtT-vehoDo2gs3GzqQZQgSVZ3lMv-U9XfqxJXq4UC5LiFl9xgchA1jan1IVytLbYPF21Vvs3qV9cM4WbWzpzumtBER5IsaIqs6uELvc9s5mh5_vZ89Taz16Y9lRzQnYBZD8DBBj24nn2cFboXaTPd8ounC_IltGGJnjHDHm8GeaAzBVJYZ8dTlMqZoCTAXhT71qb6VkjoUM8hFd1RIJxJlOQgrHoSNG6NKUAoxT4jhLpaQyS6vZOh6irj7R-HIZ8FieSs3V04vJyClfe95puB_-3Ryr7BQJir4DQJL5nkcUvUVigL5a2XVVqTEhRrZUCslKjPqrlpV27lMJMePvMDjjY9iH5mk2y1t39FGY7JKFWm32qKkGM8AX428JuhqspGy_dhFycG6eoP2dIToswc6bRvKEtCFw_MyZWENGv_f5vv_n9uJE2jbSxLmKYk8uq7zBEPdmmaNyihdlb-ezbfWDcA9a8dCT5UvUHr6oZDvUl4-APsMRTpUIY8jLjWSzATYeUt6sDi1onCZuuh-TLqgxsKgkORGPX-IVFMTKSae103wAkoWE35O2GQmkcsABBRGIGMwYkbprG-6acJ39ZJGcs7mmWTMJyaSWVrroDs9dzAlXjwszfnHj-NvHu_wXW2Mebu-f4faUIOi1IPz3EjJoFJt2bMPI-yp4bG_M0eGpoue6vfw5SgG_Aq9cl8r1SrZv4_-9CQGRxW6KiPh9hCNwE3E7qvpM0ke2toTJiPW9EDy3Sqc3a_vHEmsDT_R8Dd50J4uXwEBYDKsQ02mdIme73dMW-f4EULNGOVCnkm0sC-PTgcdwODNVPDT3TGqJH9i2t0btZQ_7sd3yDKPiIoYq-9r6f2mpvfDdcObM7tT8DNcS0Oo0nTcIr2QpHpaxwr_dbcVjOOSRs3wifdJmdM8K3jm-Xi_VxfUD5sOnNZ_G9KBdfzIA7ydCzHCDno3GB_cMzK4O_gBfssShpLjsqkom7-tw4w9J3VgTByXGSn9nzU1Ms6gYGwaJNlVvdY1GJ94XbGd1rnqRU=j";
         const request = {
