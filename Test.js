@@ -26,7 +26,7 @@ async function all() {
 function GetSign(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
-            url : 'https://kandian.wkandian.com/17/Rvideo/videoCallback.json',
+            url : 'https://kandian.wkandian.com/v17/Rvideo/videoCallback.json',
             headers : {
 
             },
