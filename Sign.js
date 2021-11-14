@@ -20,10 +20,48 @@ let signbody1 = 'p=ycTMBiVxDAfc=-Z4t1n9xCHViTEixuAOYRqfylSrDl_tcUQepJ95w98Z5zE2f
 
 async function all() {
 
-    await GetSign();
+    await TwentyArticle();
     await $.wait(1000); 
  
 }
+
+
+function TwentyArticle() {
+    return new Promise((resolve, reject) => {
+        const url = "https://ant.xunsl.com/v5/CommonReward/toGetReward.json";
+        const headers = {
+            "Connection": "Keep-Alive",
+            "Accept-Encoding": "gzip",
+            "app-version": "8.1.2",
+            "access": "WIFI",
+            "request_time": "1632206131",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "device-platform": "android",
+            "User-Agent": "okhttp/3.12.2",
+            "os-api": "26",
+            "device-model": "MIX+2",
+            "Host": "ant.xunsl.com",
+            "phone-sim": "2",
+            "os-version": "PKQ1.190118.001"
+        };
+        const body = "p=bCWzFwAroTSg%3D3-ixqWckIHemgBKS_ivZC6yXq0doUC_e4-oWGR_Oc9qGA02Xo-Hy4l_R2gQLPL94FA9rIDtq8cGHAbuj8PddtCXo_0r5w7M0l2Z-gqzScQQudK9P8ALCLQl7IhKQI0UA80lKFA-yNBy4GmBHPqB6urxO95hs3VSnjZvipsNYyuZ-Ar1vn94qRpQsIniXkLDg6qnWjlxhIaOnr96nAJLWaurItS8SV6wUKgsBhg8PNfT2Mg97kzlE96dMluaEu-O_ddjOooU02Aub2xTtxj4Wp81R0B_SZ4_B1YwDKN5XWIHglumBDEareEv0aSnZxxmTA5QzqFp5IDclsW_XWuNo749k73ArLi5JdZvGMRtsIe7uKZs3NbvD8Ges-hSKhLxIFo30ePuXiuverp76tZ_sAvAt0bsxNIf8UTSGXNYU7SzwSOAgHGrwZWIlWzrPJ8NO9BR2inPYqndUWYZkxYAMbFpYP-Sf1FnaksAMB_M2mupzUYkdd8ImgRYeA6B4ahv2ApT9gIz4co4uc9DSMlLTNJS8boYHnsH7cH9oidHOCVJFrx7fMIzmRmvuS2T6Y7fQKsexFK1-5wE4wnBgZjAhNCDP8ecuYv68gJodTonHACJg--WyczKC1krV-9y1LsHoY7hupEZq68ZIuqlquy4ALFxejuGBwswWDqvXeOy2CKwnl6UONFV1p5wELqzDFRas28lGzNQE_fF_wvzW6jy8iwJiB2HHtLxmu0fLbzYdYKL0DWjEaTM7d6z6ODc52lkGI9Q5A4q2gRZUrfmcRhEHcLs_k1UZ2QUKAP3ipMJXxOWYZp8jaRTVK5n3YwwPrwxJ8gOHNrFzrkPbKBHzw9ROe2eG9557ugtBjD22NlsZBQlN9awVltyy2LtVKfYb23f-jyCeFqS-QAsZzaUqjzhk4BsX1soIzDp8h7ODWAI4DAOzIhjNNzNQ2QHl4ogJvcc2-dxNo1aHWQnWeHECBHR9Hw_YtyPS8r3c4GjJwLx0qP4y9eG4Pt8CUg7gbBeIEQ0i8H4dO5s8uis6dQIRXyKQx7pyU9ZxNKNnqac1caSy9y-e6oKNGmiZu7l3XPNyX8WLJb3Tq4HlFQOAcQ_anLPWUcdWRYm9c6n5q-ybI38Uy3A398658JWowhucuAZne99lhQ85dmVxv3TToyPVSxO5kg%3D%3DMs";
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
+
+        $.post(request, async (error, response, data) => {
+            try {
+                $.log(data);
+            } catch (e) {
+                $.log(e)
+            }
+            resolve();
+        })
+    })
+}
+
 
 
 //获取签到信息；
