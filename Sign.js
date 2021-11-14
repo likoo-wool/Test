@@ -34,7 +34,7 @@ function GetSign() {
         const headers = {
             "Connection": "Keep-Alive",
             "Accept-Encoding": "gzip",
-            "Host": "ant.xunsl.com",
+            "Host": "kandian.wkandian.com",
             "User-Agent": "okhttp/3.12.2"
         };
         const body = signbody;
@@ -74,7 +74,7 @@ function GetSign1() {
         const headers = {
             "Connection": "Keep-Alive",
             "Accept-Encoding": "gzip",
-            "Host": "ant.xunsl.com",
+            "Host": "kandian.wkandian.com",
             "User-Agent": "okhttp/3.12.2"
         };
         const body = signbody1;
