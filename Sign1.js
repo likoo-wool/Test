@@ -1,6 +1,7 @@
 const jobname = '-RW-'
 const $ = Env(jobname)
 
+const TS = Math.round((new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000) / 1000);
 
 let signbody = 'p=iwQenZDazcfA=dm513w40Oy-qLYwy7kMYwhBboxLiaMmQqfWV9fH4V8s6_mqpfALN8pyFfs77jAT1kjUjnzB3maWtpg0ig9KCw0vrUnxeOAP0Q738gQyxMXyRTLbsWtoKAUYJhj21PXUjYsPhRBBSDtdTREIFUbqo3BhOs0PQkVedCW3Z2o8ax4yaltyzEZlVoMXj9IC0sF1Ay5KhvB1P8Tnv7Q5BTmyKm7vcSQCIkLAPdnuWJQ7xa2wKJmghlZpIPNBYv3qA8yLD7zdWfuxK1k2lSHj5Sddc3oFDSV5-CmMQ1Yh9_Uiw9p5iAfp7jKOxIU-oWg_-y6P3jz9R9vM-0ENJhKzkJ-0EOzhrIX1BQ2BYRvHM1BpICQIJ8gvjew3d3IMBi1L44TtaSQ0tuvAjd794_6ZhxAqGPM2297xzYdOj9hQ1Nf5KT8e-5JBLkrSz4QY8BV_EG9X54YbjCFGiuZudkXW3Cp3DrAL0reNxCShbHQG4Qw5CNOusId0foxMEX979yHB7X8ZB6hpGtIjL71eFjv41JdglCSfRgpuFHcNiHtxcJLZHB-kXCg2byux-ovqtx5PyAfrFxJSMw0Yw-6L7GPvDwvRQix-z5VspSPaUt6NkFQaWrnwuL1NfdoIfmY5UCWE4Jr_N5s1mKYf_cWSgaTlcjOS-0HMw8TyVqlY7rXRN0JwCJGobYPhrqVL9aPuB82lRp5FQaO9A_YVYvotK28DuAF-tfLl4p8si4ozWLbfP-Hs--i9nnh7x19EP-DTp9TdpAK8PE7itwFyv5rHa979FUaijLLmiVYliwOu4JrDJtND7Cz-j8c2LQnawbwsXp4mb8WRSHXoQVjDDJdLRgYQU2lAvn69tZofG3OmGASDBItIKfrK3RVRpbP-AxzB3mMx-JoIyP90ztNl53k4xieaiLDcyrBkcSjMOVt4E1uAHrO3RJ2b_5WtAjgJYaPbXwujCjVdtEUHhQbMpUeFEhwypz8DtCEMwiJl9cD4OhhurOo7HDijnrZ_ZaM6qgkpI2ZM3L3vHuVkQlRzWCaynw6vAFl2VVkiFEerrU_avNPKswjbJ5qCGym-fytQx8NAroR0BSzcMfFSRM90N-kAmXhHm20-8Ss9FQA77k9_O0ynZpzUcLDcqfGAQSgF8E6TBIA3sVvz8_AOg1WFi8SU86IAIsXrAnAoETRPxxdJbX1';
 let signbody1 = 'p=e6NplMcA3HQU=LusHiTcKlf6WHWTzJlW1GHl7FXW-eVtb6FN4uYeoviDWGMR6xo06ahbN4Pe-Php9T15g5XjKegMxuH1dCczpl0Nr0QghOppQDiv1zpkJAZS6TOueyBx08Beuh35Ycz9WgwMFBXnhxnnov3Lwz_nE5ezaiLkT05LBtT-vehoDo2gs3GzqQZQgSVZ3lMv-U9XfqxJXq4UC5LiFl9xgchA1jan1IVytLbYPF21Vvs3qV9cM4WbWzpzumtBER5IsaIqs6uELvc9s5mh5_vZ89Taz16Y9lRzQnYBZD8DBBj24nn2cFboXaTPd8ounC_IltGGJnjHDHm8GeaAzBVJYZ8dTlMqZoCTAXhT71qb6VkjoUM8hFd1RIJxJlOQgrHoSNG6NKUAoxT4jhLpaQyS6vZOh6irj7R-HIZ8FieSs3V04vJyClfe95puB_-3Ryr7BQJir4DQJL5nkcUvUVigL5a2XVVqTEhRrZUCslKjPqrlpV27lMJMePvMDjjY9iH5mk2y1t39FGY7JKFWm32qKkGM8AX428JuhqspGy_dhFycG6eoP2dIToswc6bRvKEtCFw_MyZWENGv_f5vv_n9uJE2jbSxLmKYk8uq7zBEPdmmaNyihdlb-ezbfWDcA9a8dCT5UvUHr6oZDvUl4-APsMRTpUIY8jLjWSzATYeUt6sDi1onCZuuh-TLqgxsKgkORGPX-IVFMTKSae103wAkoWE35O2GQmkcsABBRGIGMwYkbprG-6acJ39ZJGcs7mmWTMJyaSWVrroDs9dzAlXjwszfnHj-NvHu_wXW2Mebu-f4faUIOi1IPz3EjJoFJt2bMPI-yp4bG_M0eGpoue6vfw5SgG_Aq9cl8r1SrZv4_-9CQGRxW6KiPh9hCNwE3E7qvpM0ke2toTJiPW9EDy3Sqc3a_vHEmsDT_R8Dd50J4uXwEBYDKsQ02mdIme73dMW-f4EULNGOVCnkm0sC-PTgcdwODNVPDT3TGqJH9i2t0btZQ_7sd3yDKPiIoYq-9r6f2mpvfDdcObM7tT8DNcS0Oo0nTcIr2QpHpaxwr_dbcVjOOSRs3wifdJmdM8K3jm-Xi_VxfUD5sOnNZ_G9KBdfzIA7ydCzHCDno3GB_cMzK4O_gBfssShpLjsqkom7-tw4w9J3VgTByXGSn9nzU1Ms6gYGwaJNlVvdY1GJ94XbGd1rnqRU=j';
@@ -31,10 +32,15 @@ function GetSign() {
     return new Promise((resolve, reject) => {
         const url = "https://ant.xunsl.com/v5/CommonReward/toGetReward.json";
         const headers = {
-            "Connection": "Keep-Alive",
-            "Accept-Encoding": "gzip",
-            "Host": "ant.xunsl.com",
-            "User-Agent": "okhttp/3.12.2"
+		'request_time': TS,
+		'access': `WIFI`,
+		'device-platform': `android`,
+		'app-version': `8.1.2`,
+		'Content-Type': `application/x-www-form-urlencoded`,
+		'Host': `ant.xunsl.com`,
+		'Connection': `Keep-Alive`,
+		'Accept-Encoding': `gzip`,
+		'User-Agent': `okhttp/3.12.2`
         };
         const body = "p=iwQenZDazcfA=dm513w40Oy-qLYwy7kMYwhBboxLiaMmQqfWV9fH4V8s6_mqpfALN8pyFfs77jAT1kjUjnzB3maWtpg0ig9KCw0vrUnxeOAP0Q738gQyxMXyRTLbsWtoKAUYJhj21PXUjYsPhRBBSDtdTREIFUbqo3BhOs0PQkVedCW3Z2o8ax4yaltyzEZlVoMXj9IC0sF1Ay5KhvB1P8Tnv7Q5BTmyKm7vcSQCIkLAPdnuWJQ7xa2wKJmghlZpIPNBYv3qA8yLD7zdWfuxK1k2lSHj5Sddc3oFDSV5-CmMQ1Yh9_Uiw9p5iAfp7jKOxIU-oWg_-y6P3jz9R9vM-0ENJhKzkJ-0EOzhrIX1BQ2BYRvHM1BpICQIJ8gvjew3d3IMBi1L44TtaSQ0tuvAjd794_6ZhxAqGPM2297xzYdOj9hQ1Nf5KT8e-5JBLkrSz4QY8BV_EG9X54YbjCFGiuZudkXW3Cp3DrAL0reNxCShbHQG4Qw5CNOusId0foxMEX979yHB7X8ZB6hpGtIjL71eFjv41JdglCSfRgpuFHcNiHtxcJLZHB-kXCg2byux-ovqtx5PyAfrFxJSMw0Yw-6L7GPvDwvRQix-z5VspSPaUt6NkFQaWrnwuL1NfdoIfmY5UCWE4Jr_N5s1mKYf_cWSgaTlcjOS-0HMw8TyVqlY7rXRN0JwCJGobYPhrqVL9aPuB82lRp5FQaO9A_YVYvotK28DuAF-tfLl4p8si4ozWLbfP-Hs--i9nnh7x19EP-DTp9TdpAK8PE7itwFyv5rHa979FUaijLLmiVYliwOu4JrDJtND7Cz-j8c2LQnawbwsXp4mb8WRSHXoQVjDDJdLRgYQU2lAvn69tZofG3OmGASDBItIKfrK3RVRpbP-AxzB3mMx-JoIyP90ztNl53k4xieaiLDcyrBkcSjMOVt4E1uAHrO3RJ2b_5WtAjgJYaPbXwujCjVdtEUHhQbMpUeFEhwypz8DtCEMwiJl9cD4OhhurOo7HDijnrZ_ZaM6qgkpI2ZM3L3vHuVkQlRzWCaynw6vAFl2VVkiFEerrU_avNPKswjbJ5qCGym-fytQx8NAroR0BSzcMfFSRM90N-kAmXhHm20-8Ss9FQA77k9_O0ynZpzUcLDcqfGAQSgF8E6TBIA3sVvz8_AOg1WFi8SU86IAIsXrAnAoETRPxxdJbX1";
         const request = {
