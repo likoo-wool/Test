@@ -41,7 +41,7 @@ function kdHost(api, body) {
 
 
 
-function getsign() {
+function GetSign() {
     return new Promise((resolve, reject) => {
         $.post(kdHost(), async(error, resp, data) => {
             signres = JSON.parse(data);
