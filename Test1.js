@@ -61,13 +61,14 @@ function GetSign() {
                 const result=JSON.parse(data);           
                 if(result.data&&result.data.score)
                 {
-                    $.log(`【签到奖励】+${result.data.score}金币`);
+                    $.log(`【签到结果】+${result.data.score}金币`);
+                    $.log(`【签到结果】+${result.data}金币`);
                     await GetSign1();
                     await $.wait(1000);
                 }
                 else
                 {
-                    $.log(`【签到奖励】${result.message}`);
+                    $.log(`【签到结果】${result.message}`);
                 }
 
             } catch (e) {
