@@ -28,7 +28,7 @@ function GetSign(timeout = 0) {
         let url = {
             url : 'https://ant.xunsl.com/v5/CommonReward/toGetReward.json',
             headers : {
-                'request_time': '1634452987',
+                'request_time': '1634452928',
                 'access': `4G`,
                 'device-platform': `android`,
                 'app-version': `8.1.2`,
@@ -64,7 +64,7 @@ function GetSign1(timeout = 0) {
         let url = {
             url : 'https://ant.xunsl.com/v5/CommonReward/toDouble.json',
             headers : {
-                'request_time': '1634452928',
+                'request_time': '1634452987',
                 'access': `4G`,
                 'device-platform': `android`,
                 'app-version': `8.1.2`,
