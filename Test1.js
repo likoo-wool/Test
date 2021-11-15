@@ -17,64 +17,73 @@ const $ = Env(jobname)
 
 async function all() {
 
-    await GetSign();
+    await RotaryTable();
     await $.wait(1000); 
  
 }
 
 //抽奖
-function GetSign(timeout = 0) {
-    return new Promise((resolve) => {
-        let url = {
-            url : 'https://ant.xunsl.com/WebApi/RotaryTable/turnRotary?_=1632190292975',
-            headers : {
-                'Referer': 'https://ant.xunsl.com/html/rotaryTable/index.html?keyword_wyq=woyaoq.com&access=4G&app-version=8.3.2&app_type=jckd&app_version=8.3.2&carrier=CHN-CT&channel=c1005&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjI6Yr7mqapqGcXY&cookie_id=5c90b1d5b7bbc379d009894a619964f0&device_brand=SMARTISAN&device_id=6f9c21802e9e7d69&device_model=SM919&device_platform=android&device_type=android&inner_version=202109031457&mi=0&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T+release-keys&phone_network=4G&phone_sim=1&request_time=1634456684&resolution=1440x2560&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&subv=1.2.2&time=1634456684&uid=55242014&uuid=a22b385d22664feb807ee85febb9ba55&version_code=832&version_name=%E6%99%B6%E5%BD%A9%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjI6Yr7mqapqGcXY&zqkey_id=5c90b1d5b7bbc379d009894a619964f0'
-            },
-            body : '',}
-        $.post(url, async (err, resp, data) => {
-            try {
+function RotaryTable() {
+    return new Promise((resolve, reject) => {
+        const url = "https://ant.xunsl.com/WebApi/RotaryTable/turnRotary?_=1632190292975";
+        const headers = {
+            "Referer": `https://ant.xunsl.com/html/rotaryTable/index.html?keyword_wyq=woyaoq.com&access=4G&app-version=8.3.2&app_type=jckd&app_version=8.3.2&carrier=CHN-CT&channel=c1005&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjI6Yr7mqapqGcXY&cookie_id=5c90b1d5b7bbc379d009894a619964f0&device_brand=SMARTISAN&device_id=6f9c21802e9e7d69&device_model=SM919&device_platform=android&device_type=android&inner_version=202109031457&mi=0&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T+release-keys&phone_network=4G&phone_sim=1&request_time=1634456684&resolution=1440x2560&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&subv=1.2.2&time=1634456684&uid=55242014&uuid=a22b385d22664feb807ee85febb9ba55&version_code=832&version_name=%E6%99%B6%E5%BD%A9%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjI6Yr7mqapqGcXY&zqkey_id=5c90b1d5b7bbc379d009894a619964f0`
+        };
+        const body = "";
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
 
-                const result = JSON.parse(data)
-                if(result.success == true){
-                    console.log('\n✅幸运转盘奖励，获得：'+result.items.score +'比特币🎡')
+        $.post(request, async (error, response, data) => {
+            try {
+                //$.log(data);
+                const result=JSON.parse(data);
+                if(result.data.score)
+                {
+                    $.log(`【幸运转盘奖励】+${result.data.score}金币`);
                     await $.wait(1000);
-                    await GetSign1();
-                }else{
-                    console.log('\n✅今日已完成抽奖，明天再来吧✅')
+                    await DRotaryTable();
                 }
             } catch (e) {
-            } finally {
-                resolve()
+                $.log(e)
             }
-            },timeout)
+            resolve();
+        })
     })
 }
 
 //抽奖翻倍
-function GetSign1(timeout = 0) {
-    return new Promise((resolve) => {
-        let url = {
-            url : 'https://ant.xunsl.com/v5/RotaryTable/toTurnDouble.json',
-            headers : {
-                'device-platform': 'android',
-            },
-            body : 'p=I1HH-fn083Io=MU9bbDOU5wV2X_CtvQk1Ix6AHkgSVSOvqUZ7bu7qE8hQCN-TkXk2yWP7mbclloe2n8pTrLRVpvFZ1jdonBgANY9RSYVffcGPHBAbXCFkXOkQb5vHFjFjTqIl3aDWiFcCcW2Gyy7XiUYTd7-J_cs7uXuDqbaJu0uuBz1UG18i-BVS59M-EIdEgY9nv2TffCLsy3HRQZVZE03q8CIZIi1oJJAL7wXUR6hPkBr21gbP9Kf5RqTcGu-57oBmlSmekiZvb4QPTaCySlIuKtxt6WQBRUZEMvoHLYhADZ6WeA7LIo5kjVuBpwa-HtqUFne0pHlVRS8X66xJzDR3SrRDwlgen6P9q98qkoeBeh8vlbmgey_ljnWzlt8DC9qIQ-gbEPViEF2OkFa20Yj7fRRcS5q9BbaH8mUMmTu-YJBIg9p2-z_XekYz77-had8CBep0DXpHOQghA_sd-1YbmjMLz760cCBkohl1KV9RnZPu5NvUMwpGuyodQ0VpfnkalR9NbYhxuHEUXmXoj6yd65XrfwfevoWw19toz5mz9472Wd5fFVDf6-cJanlXiABU1FCHt8o-wn60fj2xJyT_zXfTic9cXLuE6BluvM-hWJRMuCfg07__flKB5cy2M67MezHsKTiSMNUKxXHATB8YCEAfSLwMnjKT3U0sY1_u2C-fQwWivtgsTohclFzhvP1RfApIH9fXVOGkUqyET68_sHZqWxWR15_-OBsEx-M9sRCm54gnKlECZPiVgXVpd92M6VaXC_aVyK1w7IN0-T37dKpQgBTGjbR7hNnMvxQdqsNyHLVmlg6NwTVWKqzo4b-XBPKpcpcMtY1hmxXgdB4pk6wtujwYdYxx-jacK0PmtGaoDGuAAyY-Cys-dO1MzEvu8qk1pvDQaa0L2yZaPzRl-2lW9DGDdBo0knrWixp5JKWT-rIRXBLcQbnn4M4CFnbYKQ9y89acYyROkdmLKpjKHrn3TbreETVgs1Z62EKdZDCgxDhj-okUFuAxBqd722UriL9YBF3cpR3a06RsI-nR7Wk3OIdApdcChTd2qcF1dv4AyJx8ngpxdAIETY6FJuHtQr4z4MCydmNAypFIeQcnWB0sCMEJoE6KrX4eh5qINPsUEVqWEnQ=',}
-        $.post(url, async (err, resp, data) => {
-            try {
+function DRotaryTable() {
+    return new Promise((resolve, reject) => {
+        const url = "https://ant.xunsl.com/v5/RotaryTable/toTurnDouble.json";
+        const headers = {
+            "device-platform": "android",
+        };
+        const body = "p=I1HH-fn083Io=MU9bbDOU5wV2X_CtvQk1Ix6AHkgSVSOvqUZ7bu7qE8hQCN-TkXk2yWP7mbclloe2n8pTrLRVpvFZ1jdonBgANY9RSYVffcGPHBAbXCFkXOkQb5vHFjFjTqIl3aDWiFcCcW2Gyy7XiUYTd7-J_cs7uXuDqbaJu0uuBz1UG18i-BVS59M-EIdEgY9nv2TffCLsy3HRQZVZE03q8CIZIi1oJJAL7wXUR6hPkBr21gbP9Kf5RqTcGu-57oBmlSmekiZvb4QPTaCySlIuKtxt6WQBRUZEMvoHLYhADZ6WeA7LIo5kjVuBpwa-HtqUFne0pHlVRS8X66xJzDR3SrRDwlgen6P9q98qkoeBeh8vlbmgey_ljnWzlt8DC9qIQ-gbEPViEF2OkFa20Yj7fRRcS5q9BbaH8mUMmTu-YJBIg9p2-z_XekYz77-had8CBep0DXpHOQghA_sd-1YbmjMLz760cCBkohl1KV9RnZPu5NvUMwpGuyodQ0VpfnkalR9NbYhxuHEUXmXoj6yd65XrfwfevoWw19toz5mz9472Wd5fFVDf6-cJanlXiABU1FCHt8o-wn60fj2xJyT_zXfTic9cXLuE6BluvM-hWJRMuCfg07__flKB5cy2M67MezHsKTiSMNUKxXHATB8YCEAfSLwMnjKT3U0sY1_u2C-fQwWivtgsTohclFzhvP1RfApIH9fXVOGkUqyET68_sHZqWxWR15_-OBsEx-M9sRCm54gnKlECZPiVgXVpd92M6VaXC_aVyK1w7IN0-T37dKpQgBTGjbR7hNnMvxQdqsNyHLVmlg6NwTVWKqzo4b-XBPKpcpcMtY1hmxXgdB4pk6wtujwYdYxx-jacK0PmtGaoDGuAAyY-Cys-dO1MzEvu8qk1pvDQaa0L2yZaPzRl-2lW9DGDdBo0knrWixp5JKWT-rIRXBLcQbnn4M4CFnbYKQ9y89acYyROkdmLKpjKHrn3TbreETVgs1Z62EKdZDCgxDhj-okUFuAxBqd722UriL9YBF3cpR3a06RsI-nR7Wk3OIdApdcChTd2qcF1dv4AyJx8ngpxdAIETY6FJuHtQr4z4MCydmNAypFIeQcnWB0sCMEJoE6KrX4eh5qINPsUEVqWEnQ=";
+        const request = {
+            url: url,
+            headers: headers,
+            body: body
+        };
 
-                const result = JSON.parse(data)
-                if(result.success == true){
-                    console.log('\n✅大转盘视频奖励翻倍成功，获得：'+result.items.score +'比特币📺')
+        $.post(request, async (error, response, data) => {
+            try {
+                //$.log(data);
+                const result=JSON.parse(data);           
+                if(result.items&&result.items.score)
+                {
+                    $.log(`【大转盘视频奖励翻倍】+${result.items.score}金币`);
                     await $.wait(2000);
-                    await GetSign();
-                }else{
-                    console.log('\n❎大转盘视频奖励翻倍失败❎')
+                    await RotaryTable();
                 }
+                
             } catch (e) {
-            } finally {
-                resolve()
+                $.log(e)
             }
-            },timeout)
+            resolve();
+        })
     })
 }
 /*
