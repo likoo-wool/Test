@@ -19,299 +19,93 @@ async function all() {
 
     await GetSign();
     await $.wait(1000); 
-    await HomePacket();
-    await $.wait(1000);
-    await Homevideo();
-    await $.wait(1000);
-    await TimePacket();
-    await $.wait(1000);
-    await TimePacket1();
-    await $.wait(1000);
-    await TimingPacket();
-    await $.wait(1000);
-
  
 }
 
-//签到
-function GetSign() {
-    return new Promise((resolve, reject) => {
-        const url = "https://ant.xunsl.com/v5/CommonReward/toGetReward.json";
-        const headers = {
-            'request_time': '1634692228',
-            'access': '4G',
-            'device-platform': 'android',
-            'app-version': '8.1.2',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Host': 'ant.xunsl.com',
-            'Connection': 'Keep-Alive',
-            'Accept-Encoding': 'gzip',
-            'User-Agent': 'okhttp/3.12.2'
-        };
-        const body = "p=S1HH-fn083Io=oMisThwCJ-M4N7AfqRNmBLNlIZYdczPsacy5M1LBv2_ePTexZoppgkZNDH9txXi_vZJqBXxttelEt4pspONzD6tID-1Q9unup0aWqX-SLYHusdXWvulwNq6vFsMnEmAyr8dcJRAfJ44eZknML4PENZe-iV5gznuXPJoa7OqQJ4Ruqx5VyoI7Ju3l5nA-XOIdZPFzFmyp74tXsKVbbNxkdGILFgOK3j54dXNl0rIjbwlTeAH2j0MfuVedeb8oQeR5DhyYZE6B7f-Bhc8Sh2jzUWIRP7yypE7SaUt6LuB3fRyVhTW2R2gVZbV-fJSxNAzZ74q-0ELrTTxP1NWCVGD76tFXvWSj1-xNMz5-Vy4mQioiEdJ-Xy0jrXMAQYVr5zbfEiTZZwX_LIZGld7i3b6PmSDOc5MLK_Cb5rJFaOhe_04sh7fkcSl-8fmSjKMNKSIVnUfOQ15LZiOoEETW6ig5JNOxOY7rzBxPOHZIej7L99bT5im2vpjGGWWHpY8k0ifKuOYZbLm5HjGDz5ZJTLy6T16w2pSkNy_P9z2NqABsjd63M-dwy7Cj-YAr7lIRTZ-dUuOoH0f_eVVEeZ8XRwOQ203qDRqrGK95-Km9WQgOVsMqtDVdvDVsuav1L7K7FGUE9PeyVSrWXCIOoA4oKl-PMqQ2b6wi4wHYulJfmsG5PhT6Hwh-njnVV3kpRrXbi7neiO2_v8mRr8YJauWHLx7z5eQJp8lYeIkwWpUjOL40JQ_mN-0VOqJ_anRq8KgauuZy_TF2dbKtVgGexHwsrBh3VcCTsRvxg60V9jfRTYLLzYt_7m2aj_j34AUFBuBZOLQaMdH0BOrDx2XxdnBJemzdJIGFQ9rYPLsmfw4N9gNrNfagcK7n0yW-hDKXiK2B-INGPmaghgqzSHVKiNY8yoRPD6H9YlpaIlIJofWUccqRNizOukkfYgKxijpUEVON9daphGIM0ETuZQ7sJNHjF6WitiCb_D2MNORqQupX0dHXr7WZPdeWqGt6kW9FyiwS0D53boxTmre_oyYEJ3cmalAguKYyNbLZosemOtr3wzUPOVSK0ubqusguYo7hIXl9SyadJ4hKyvdO5kdS7Y_vDys6ybDqRJvseTtHkwDj2-EtCjEGiF979IqDn82b_f7yrjrRTT8p1AeSaDgtFDVghqBHZoxWx9IXNiJROk0mfJuTirs=";
-        const request = {
-            url: url,
-            headers: headers,
-            body: body
-        };
-
-        $.post(request, async (error, response, data) => {
+//抽奖
+function GetSign(timeout = 0) {
+    return new Promise((resolve) => {
+        let url = {
+            url : 'https://ant.xunsl.com/WebApi/RotaryTable/turnRotary?_=1632190292975',
+            headers : {
+                'Referer': 'https://ant.xunsl.com/html/rotaryTable/index.html?keyword_wyq=woyaoq.com&access=4G&app-version=8.3.2&app_type=jckd&app_version=8.3.2&carrier=CHN-CT&channel=c1005&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjI6Yr7mqapqGcXY&cookie_id=5c90b1d5b7bbc379d009894a619964f0&device_brand=SMARTISAN&device_id=6f9c21802e9e7d69&device_model=SM919&device_platform=android&device_type=android&inner_version=202109031457&mi=0&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T+release-keys&phone_network=4G&phone_sim=1&request_time=1634456684&resolution=1440x2560&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&subv=1.2.2&time=1634456684&uid=55242014&uuid=a22b385d22664feb807ee85febb9ba55&version_code=832&version_name=%E6%99%B6%E5%BD%A9%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjI6Yr7mqapqGcXY&zqkey_id=5c90b1d5b7bbc379d009894a619964f0'
+            },
+            body : '',}
+        $.post(url, async (err, resp, data) => {
             try {
-                //$.log(data);
-                const result=JSON.parse(data);           
-                if(result.data&&result.data.score)
-                {
-                    $.log(`【签到结果】+${result.data.score}金币`);
-                    await GetSign1();
+
+                const result = JSON.parse(data)
+                if(result.success == true){
+                    console.log('\n✅幸运转盘奖励，获得：'+result.items.score +'比特币🎡')
                     await $.wait(1000);
+                    await GetSign1();
+                }else{
+                    console.log('\n✅今日已完成抽奖，明天再来吧✅')
                 }
-                else
-                {
-                    $.log(`【签到结果】今日已签到，明天再来吧`);
-                }
-
             } catch (e) {
-                $.log(e)
+            } finally {
+                resolve()
             }
-            resolve();
-        })
+            },timeout)
     })
 }
 
-//签到翻倍
-function GetSign1() {
-    return new Promise((resolve, reject) => {
-        const url = "https://ant.xunsl.com/v5/CommonReward/toDouble.json";
-        const headers = {
-            'request_time': '1634422388',
-            'access': '4G',
-            'device-platform': 'android',
-            'app-version': '8.1.2',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Host': 'ant.xunsl.com',
-            'Connection': 'Keep-Alive',
-            'Accept-Encoding': 'gzip',
-            'User-Agent': 'okhttp/3.12.2'
-        };
-        const body = "p=W7jvhIkVyrvg=ANvXoumpFwOrXuoVAqVeHT14bq1NhTJzbiqZqy_MXXKS5wUQIXgfDWO7_Ilv4K1nbRGCSK-Hxjb9hXdJ9XKEMvKUOuTNODlUYFP8SbH-vz1IvT96yV-RpDq5kSg9bttEzh5aX-8dMo3_SpTQLSaA2DatIOS47YdSe0iuczTrktPtViTtDLfTA9smSWFKi-5703qBbEAM8GrsZF0V5a9122OY-qgJgzaFMIiqC3RSflM9hpvsaWnOw_-rCYb8u9dDZQQ9KpPV82CDqQID-VyU5PbLk6rmZWHgYHx15pxsGP89SqnTRN9PsvOMj2xj5qFMvc33utOPWKMZA6AiYEBNYeedLZSclCwDeTqMrBolF7YY2VK1MdD-qTyYUcpM6CQ5C_sHD-NVg27ZBQpghfzdb8SdAglHdFZ4SeFMvN3CylL2V4RjCk1bWvWwfPd3oINJI_sNtnQTsExoYQ4wpRvvSyfAt799g0PM7I6iHQz2nJUBJ2k3F88xxwc0H6ypFhWbois2lqhUUozjkjR9Go3X9qZQZrw0a5ZhloJ0_Eb48tXnBRFnM2-L0kyi4W5QpAvOmiFPTROsM4pqTd2YqBHu_GKbKv36eKgbUJzhkuifYjrOtDM1HHghIHqky6tYnkLlbalbngnz6tTqR9fHNHvlPcncd4GAhfozrMzRbbJ6td4-49lQv1UdvTdOFzUjo8wmqWuFbnx3ApQZAKNWO0J8222kZen-Awa9Ev38s0IfFKPiBLsewdoo0HAhBYhhHXpsx_LWQgzZbNlZxxgRT32qU0s_iy2447W6Yuoptu4wNUj4GXc5bXhmD5vSWgjtJn01UfBLUfRAUZ98PAR6VAY96H0k3aujgzaMdfEIDgTzqCqcbuRzcVjZVbcOJMLU0c_nc44kREbswEDTu-mOSAQBjGVKKY8vfXjuVVKAGcZJF906pqJTN8V_Jd5phvdvZy-O7lOJV0MnVbDNc9oVbppdZu_mVVrfQnAP-At_Q-xnz-vG-qF1o97CwO_QcuLFlWHxWM3Ejt_fIkWQNntylvTnTdquIw5dXSnk7oic6za8YUimdFKAG-vyRHQHTbMchB94lFlia7vjBYTyVnRytTdAuOSf9cyOD9pb2F4qskxNxJINCkGI1esDZODlj0qASmO1ODHFHRrnvbL_140e858T3niH8Mn0HSb9eSaGPd4oSL6lVvEV43wWdg==G";
-        const request = {
-            url: url,
-            headers: headers,
-            body: body
-        };
-
-        $.post(request, async (error, response, data) => {
+//抽奖翻倍
+function GetSign1(timeout = 0) {
+    return new Promise((resolve) => {
+        let url = {
+            url : 'https://ant.xunsl.com/v5/RotaryTable/toTurnDouble.json',
+            headers : {
+                'device-platform': 'android',
+            },
+            body : 'p=I1HH-fn083Io=MU9bbDOU5wV2X_CtvQk1Ix6AHkgSVSOvqUZ7bu7qE8hQCN-TkXk2yWP7mbclloe2n8pTrLRVpvFZ1jdonBgANY9RSYVffcGPHBAbXCFkXOkQb5vHFjFjTqIl3aDWiFcCcW2Gyy7XiUYTd7-J_cs7uXuDqbaJu0uuBz1UG18i-BVS59M-EIdEgY9nv2TffCLsy3HRQZVZE03q8CIZIi1oJJAL7wXUR6hPkBr21gbP9Kf5RqTcGu-57oBmlSmekiZvb4QPTaCySlIuKtxt6WQBRUZEMvoHLYhADZ6WeA7LIo5kjVuBpwa-HtqUFne0pHlVRS8X66xJzDR3SrRDwlgen6P9q98qkoeBeh8vlbmgey_ljnWzlt8DC9qIQ-gbEPViEF2OkFa20Yj7fRRcS5q9BbaH8mUMmTu-YJBIg9p2-z_XekYz77-had8CBep0DXpHOQghA_sd-1YbmjMLz760cCBkohl1KV9RnZPu5NvUMwpGuyodQ0VpfnkalR9NbYhxuHEUXmXoj6yd65XrfwfevoWw19toz5mz9472Wd5fFVDf6-cJanlXiABU1FCHt8o-wn60fj2xJyT_zXfTic9cXLuE6BluvM-hWJRMuCfg07__flKB5cy2M67MezHsKTiSMNUKxXHATB8YCEAfSLwMnjKT3U0sY1_u2C-fQwWivtgsTohclFzhvP1RfApIH9fXVOGkUqyET68_sHZqWxWR15_-OBsEx-M9sRCm54gnKlECZPiVgXVpd92M6VaXC_aVyK1w7IN0-T37dKpQgBTGjbR7hNnMvxQdqsNyHLVmlg6NwTVWKqzo4b-XBPKpcpcMtY1hmxXgdB4pk6wtujwYdYxx-jacK0PmtGaoDGuAAyY-Cys-dO1MzEvu8qk1pvDQaa0L2yZaPzRl-2lW9DGDdBo0knrWixp5JKWT-rIRXBLcQbnn4M4CFnbYKQ9y89acYyROkdmLKpjKHrn3TbreETVgs1Z62EKdZDCgxDhj-okUFuAxBqd722UriL9YBF3cpR3a06RsI-nR7Wk3OIdApdcChTd2qcF1dv4AyJx8ngpxdAIETY6FJuHtQr4z4MCydmNAypFIeQcnWB0sCMEJoE6KrX4eh5qINPsUEVqWEnQ=',}
+        $.post(url, async (err, resp, data) => {
             try {
-                //$.log(data);
-                const result=JSON.parse(data);           
-                if(result.data&&result.data.score)
-                {
-                    $.log(`【签到翻倍奖励】+${result.data.score}金币`);
-                }
-                else
-                {
-                    $.log(`【签到翻倍奖励】${result.msg}`);
-                }
 
+                const result = JSON.parse(data)
+                if(result.success == true){
+                    console.log('\n✅大转盘视频奖励翻倍成功，获得：'+result.items.score +'比特币📺')
+                    await $.wait(2000);
+                    await GetSign();
+                }else{
+                    console.log('\n❎大转盘视频奖励翻倍失败❎')
+                }
             } catch (e) {
-                $.log(e)
+            } finally {
+                resolve()
             }
-            resolve();
-        })
+            },timeout)
     })
 }
-
-//首页
-function HomePacket() {
-    return new Promise((resolve, reject) => {
-        const url = "https://ant.xunsl.com/v5/CommonReward/toGetReward.json";
-        const headers = {
-            'request_time': '1634422228',
-            'access': '4G',
-            'device-platform': 'android',
-            'app-version': '8.1.2',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Host': 'ant.xunsl.com',
-            'Connection': 'Keep-Alive',
-            'Accept-Encoding': 'gzip',
-            'User-Agent': 'okhttp/3.12.2'
-        };
-        const body = "p=f4W7v2WlUNXk=OizDqIly7NWI8mNFoeFk-qq-O2z20KPpHBywxONYCcbTbQiIJDRliVhBapXgjWQOoEBDgVgHJ3g8IOaDulYUnlBtvn8C_DCOWMJoSAJIAhkR8vuuw8N8ga96-5rZpip4__QOeF7WUV2mXC6hT3VCv2r3lFGhJLkZ9RmTUGDSH-cyikDNzrZChL6dY4IVkO6xj98o4TrQoeXJFM6_snxIUiUW5dWWpqgtzYN9BbDPGW-EVZYoBOJnGiAvwkesmdz1f_KkI9dUJEjPKQrxde5aV8bVVPzcBkkRhln3q1REbA0ZpP4D_B_H00mbXXDtZuua29aeBD9mn7iifRqBqu43aQxCmD8dKxAWvWVmqpjV54GOXUlc43Fm_9ePx4M6VvdS1HaTh8eBsTTTHo_YUPyDJ-82pgIwBpg8mgBivAvf98CVBcv2LXPnvjHSUUKo5fWhrOnmEUun_YuXkeyu9ZOICqIw7UtJLnoBCf95O_Uf7sIrfqolZ4ZpY5fmNTL4QOLEdaCrx2J9YA9F5BCHSTZSrBGY4oKshZHLCDsrEdlNlittrIoLQ6fZIzHOzr0uJMzjXuItBcB8pxZl3DXrKh5BHe7M-_hNQshfL3WCTFToJaLPncE-jNdvEsgmaFJntSiIaj6npmly9EMIDrT0acw3vcahQq9ujwahKOEOb8mNzaLHs_nAgrWO8meqwdI6xOQHpvRPygHKOwOe7TLp_IADFjCwCjUz_XlbqubWul9mfwZsput1LVMn-OPQpjKdzWD7w30E_MTGu_1KQEPLjLiilluhk45q_oduZfS42ACmWKJVwGIHw0mJTTfUq4uZUrZ5_c5raNSth2SjebbkK5SrVNqav4lWCFHIECcKQQNVvl0cVJ0WTpvpdlcDGaKd9jLdG0_djsqmOj6Uh_m7ZWDA1Q3Bg7YlqzMV3SeTVnlHFpWwUZn_C4YGdonPWgzEe7l86U6ypkI7g3Xi0o1WnJtttRAEuUpkv1mufGfUHDVpWgiGzJBSjstHTrlMmuaCycmFiSGAaOBTiMZDdP9bjyyLovNfWO1A0sn4VAoPt1qJRjECRZOog0H6oZM6bIXFpRy-H8Di9zNiphEPgHmV60dfxWzeQEU4Ghs5BLvk1NkBnEwnWFcy5R1M9jaKgh54UTwe_bhMS5XN_B1HCzBXGWYtQUPmNkU7mylCNepS_a5Klh8=f4";
-        const request = {
-            url: url,
-            headers: headers,
-            body: body
-        };
-
-        $.post(request, async (error, response, data) => {
+/*
+//抽奖宝箱
+function GetSign1(timeout = 0) {
+    return new Promise((resolve) => {
+        let url = {
+            url : 'https://kandian.wkandian.com/WebApi/RotaryTable/chestReward?_=1632190292999',
+            headers : {
+                'Host': 'kandian.wkandian.com',
+                'User-Agent': 'okhttp/3.12.2',
+                
+            },
+            body : '',}
+        $.post(url, async (err, resp, data) => {
             try {
-                //$.log(data);
-                const result=JSON.parse(data);           
-                if(result.data&&result.items.score)
-                {
-                    $.log(`【首页红包奖励】+${result.items.score}金币`);
-                }
-                else
-                {
-                    $.log(`【首页红包奖励】${result.message}`);
-                }
 
+                const result = JSON.parse(data)
+                if(result.success == true){
+                    console.log('\n✅抽奖宝箱打开成功，获得：'+result.items.score +'比特币🎁')
+                }else{
+                    console.log('\n❎抽奖宝箱打开失败❎')
+                }
             } catch (e) {
-                $.log(e)
+            } finally {
+                resolve()
             }
-            resolve();
-        })
+            },timeout)
     })
 }
-
-//首页视频
-function Homevideo() {
-    return new Promise((resolve, reject) => {
-        const url = "https://ant.xunsl.com/v17/Rvideo/videoCallback.json";
-        const headers = {
-
-        };
-        const body = "access=4G&action=right_corner_video&app-version=8.3.2&app_name=jckd_app&app_version=8.3.2&carrier=CHN-CT&channel=c1005&device_brand=SMARTISAN&device_id=52000271&device_model=SM919&device_platform=android&device_type=android&dpi=560&inner_version=202109031457&language=zh-CN&memory=5&mi=0&mobile_type=1&net_type=2&network_type=4G&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&request_time=1634452196&resolution=1440x2560&rom_version=MXB48T%20release-keys&s_ad=C7jvhIkVyrvg%3D-yk38pmM3JKhxvg4BmiQt9uAQgo9HJJXY&s_im=vCWzFwAroTSg%3Dm5oHIteOrCfqCdfjBg8NkQ%3D%3DU5&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&storage=52.62&subv=1.2.2&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhY2Nlc3MiOiI0RyIsImFjdGlvbiI6InJpZ2h0X2Nvcm5lcl92aWRlbyIsImFwcC12ZXJzaW9uIjoiOC4zLjIiLCJhcHBfbmFtZSI6Impja2RfYXBwIiwiYXBwX3ZlcnNpb24iOiI4LjMuMiIsImNhcnJpZXIiOiJDSE4tQ1QiLCJjaGFubmVsIjoiYzEwMDUiLCJkZXZpY2VfYnJhbmQiOiJTTUFSVElTQU4iLCJkZXZpY2VfaWQiOiI1MjAwMDI3MSIsImRldmljZV9tb2RlbCI6IlNNOTE5IiwiZGV2aWNlX3BsYXRmb3JtIjoiYW5kcm9pZCIsImRldmljZV90eXBlIjoiYW5kcm9pZCIsImRwaSI6IjU2MCIsImlubmVyX3ZlcnNpb24iOiIyMDIxMDkwMzE0NTciLCJsYW5ndWFnZSI6InpoLUNOIiwibWVtb3J5IjoiNSIsIm1pIjoiMCIsIm1vYmlsZV90eXBlIjoiMSIsIm5ldF90eXBlIjoiMiIsIm5ldHdvcmtfdHlwZSI6IjRHIiwib3BlbnVkaWQiOiI2ZjljMjE4MDJlOWU3ZDY5Iiwib3NfYXBpIjoiMjMiLCJvc192ZXJzaW9uIjoiTVhCNDhUK3JlbGVhc2Uta2V5cyIsInJlcXVlc3RfdGltZSI6IjE2MzQ0NTIxOTYiLCJyZXNvbHV0aW9uIjoiMTQ0MHgyNTYwIiwicm9tX3ZlcnNpb24iOiJNWEI0OFQrcmVsZWFzZS1rZXlzIiwic19hZCI6IkM3anZoSWtWeXJ2ZyUzRC15azM4cG1NM0pLaHh2ZzRCbWlRdDl1QVFnbzlISkpYWSIsInNfaW0iOiJ2Q1d6RndBcm9UU2clM0RtNW9ISXRlT3JDZnFDZGZqQmc4TmtRJTNEJTNEVTUiLCJzaW0iOiIxIiwic21fZGV2aWNlX2lkIjoiMjAyMTA5MjkxNjA1Mjc3Y2QyZTM1Yzc5MTFiY2JiM2YzMGEwZmVjYzI4YTEyYjAxYjIwYjgzMWEyMTk3NDQiLCJzdG9yYWdlIjoiNTIuNjIiLCJzdWJ2IjoiMS4yLjIiLCJ1aWQiOiI1NTI0MjAxNCIsInZlcnNpb25fY29kZSI6IjgzMiIsInpxa2V5IjoiTURBd01EQXdNREF3TUpDTXBOLXcwOVd0ZzUtQmIzNmVoNkNQcUh1YWxJZWpsNi1GcldLd3pYV3hoWHlwNExEUHlHbDlvbnFrajNacVlKYThZODk4bmFqV3NKdXBaTERkaFdtRmpIN2Vycm02YXBxR2NYWSIsInpxa2V5X2lkIjoiZWFiOWU0MmI4NjU0NTYwOGFmNzAzMGJlYjkxZWEwNjkifQ.puiVKRhVCi5AS1lV87E-bzbdfm6ZUFiWMng2rgCi4ErtSW4v3_zybyjLCoSryIhJZJns62pz-Wvb-OBmkEFdkw&uid=55242014&version_code=832&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjH7errm6apqGcXY&zqkey_id=eab9e42b86545608af7030beb91ea069";
-        const request = {
-            url: url,
-            headers: headers,
-            body: body
-        };
-
-        $.post(request, async (error, response, data) => {
-            try {
-                //$.log(data);
-                const result=JSON.parse(data);           
-                if(result.items&&result.items.dialog&&result.items.dialog.score)
-                {
-                    $.log(`【首页视频奖励】+${result.items.dialog.score}金币`);
-                }
-                else
-                {
-                    $.log(`【首页视频奖励】${result.message}`);
-                }
-                    
-            } catch (e) {
-                $.log(e)
-            }
-            resolve();
-        })
-    })
-}
-
-//时段奖励
-function TimePacket() {
-    return new Promise((resolve, reject) => {
-        const url = "https://ant.xunsl.com/v5/CommonReward/toGetReward.json";
-        const headers = {
-            'request_time': '1634489188',
-            'access': '4G',
-            'device-platform': 'android',
-            'app-version': '8.1.2',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Host': 'ant.xunsl.com',
-            'Connection': 'Keep-Alive',
-            'Accept-Encoding': 'gzip',
-            'User-Agent': 'okhttp/3.12.2'
-        };
-        const body = "p=q1HH-fn083Io=kcwK6k8y-7-OHdSqcwNtVie95kAmloPTuzq5WjMQiieyEQ0jp4gXthoch_OMNeK-D-w14_UAlHjiIx_8ZwkFGfETCf2INPpXURw5DEVSe9HsGDWklvgYSwTqo1WJW59gnOq5ESWQiGbydnG-uHFZDR57epDaFGYR8dgYDBPFJKTegJfIigUNJqwp6ff-mkjfKF-G74eRHBWazS3UKfdi6SRC1S4EKfVtRLwE7ZcUhIy4LRP4vKsecDFtlMw27U1mul8c7GHDc7zc0NVQSgK8YWk8ddHVc2F7ykBRUXS1yWUzgHFy2PrmFfElHRKPrnvvZxzrV10Mo9srIoqVFQjb4vUkyyZj-uq7l72ZB3f0Bx7OztE0wbYAjRprY4uEa432IdOyM80ICp-3duG1kEBVDRCmYiHbwldX0giginBsLv9grtdnQiW-yilFCNaBh5ilpay0Uu5HuU6chkolXI_AdZR5h4S4JmCxuEwp9u8tU4juh6Eg7aAtLpN5th4yzF_KtgyXnuQyFBfyJtxOIkQ5haJWJEiXDBqB2eMm0l8Hsn3SxupwJVuVTlVQ1OXTMK6nfLiO2Yymr369DHxfibx6loTU0OjFDxm-HoRtLfSTeCSVy6ulZu1zKn6nFDGFFZdFtw9YUdlvdRR-UIpvgHJoc9jywKpfI6MVdV8_O-RK8ebWNBB2ZobzO6q1Es4Q_DyG05iBu9EZQTn_WOP7s86Z4nSBoL0d5-f0Lk-qD6SW25e0pah_CwIlNpEqcSq520WnRQBpk4B5h3RygkyR8VYBIyB3ZEgl0vQhW7vOg6y3KyeLGasHAY38g1bwf7h2qTOWNH4Tqlu3AOYA5tqLrG0vSovpkQBIJV6yg5ozUWfAsK9e57SqqxhEA49lPNhRDUmQ2PZyod3mRAPwCr1gTQOOTrdfxdUIKQzFEcNReFLFgK3g1IvtEZfz_GC1Sg1_KVAhTG2sTxDECNRI7dExKBXxVZmPBhmyeLV9B2IMzxxXS8PCEyz1_uOH3pDLQXVEaG_EGdo5bwVU5CoEiMsDmL_0xw8XVyLrkr76MRP7iN_FHmebZ5wCNlSUBuhud7GMZMAXFP2AmCIF_uJ9SAs2P1CwjSGfMptgRDLFc3BICz_xmxphyYresKzDgoQv5_Tw3YzJQ5ZyFIo4S4M=";
-        const request = {
-            url: url,
-            headers: headers,
-            body: body
-        };
-
-        $.post(request, async (error, response, data) => {
-            try {
-                //$.log(data);
-                const result=JSON.parse(data);           
-                if(result.data&&result.items.score)
-                {
-                    $.log(`【时段红包奖励】+${result.items.score}金币`);
-                }
-                else
-                {
-                    $.log(`【时段红包奖励】${result.message}`);
-                }
-
-            } catch (e) {
-                $.log(e)
-            }
-            resolve();
-        })
-    })
-}
-
-//计时奖励
-function TimePacket1() {
-    return new Promise((resolve, reject) => {
-        const url = "https://ant.xunsl.com/WebApi/TimePacket/getReward";
-        const headers = {
-            'Referer': 'https://ant.xunsl.com/h5/20200612makeMoney/?access=4G&app-version=8.3.2&app_type=jckd&app_version=8.3.2&carrier=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&channel=c1005&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdjW6FooabrqmiapqGcXY&cookie_id=57782dceeac7b9bf1b6bec24a730ce00&device_brand=SMARTISAN&device_id=6f9c21802e9e7d69&device_model=SM919&device_platform=android&device_type=android&inner_version=202109031457&mi=0&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&phone_network=4G&phone_sim=1&request_time=1636964935&resolution=1440x2560&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&subv=1.2.2&time=1636964935&uid=55242014&uuid=a22b385d22664feb807ee85febb9ba55&version_code=832&version_name=%E6%99%B6%E5%BD%A9%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdjW6FooabrqmiapqGcXY&zqkey_id=57782dceeac7b9bf1b6bec24a730ce00'
-        };
-        const body = "";
-        const request = {
-            url: url,
-            headers: headers,
-            body: body
-        };
-
-        $.post(request, async (error, response, data) => {
-            try {
-                //$.log(data);
-                const result=JSON.parse(data);           
-                if(result.data&&result.data.score)
-                {
-                    $.log(`【计时红包奖励】+${result.data.score}金币`);
-                }
-                else
-                {
-                    $.log(`【计时红包奖励】${result.msg}`);
-                }
-
-            } catch (e) {
-                $.log(e)
-            }
-            resolve();
-        })
-    })
-}
-
-//定时宝箱
-function TimingPacket() {
-    return new Promise((resolve, reject) => {
-        const url = "https://ant.xunsl.com/WebApi/invite/openHourRed";
-        const headers = {
-            'Referer': 'http://ant.xunsl.com/h5/20190410invitefriend/?antaccess=4G&app-version=8.3.2&app_type=jckd&app_version=8.3.2&carrier=CHN-CT&channel=c1005&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjHrer7m6apqGcXY&cookie_id=1151e6340221527ef9fd47ec22857953&device_brand=SMARTISAN&device_id=6f9c21802e9e7d69&device_model=SM919&device_platform=android&device_type=android&inner_version=202109031457&mi=0&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T+release-keys&phone_network=4G&phone_sim=1&request_time=1634451167&resolution=1440x2560&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&subv=1.2.2&time=1634451167&uid=55242014&uuid=a22b385d22664feb807ee85febb9ba55&version_code=832&version_name=%E6%99%B6%E5%BD%A9%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdhWmFjHrer7m6apqGcXY&zqkey_id=1151e6340221527ef9fd47ec22857953'
-        };
-        const body = "";
-        const request = {
-            url: url,
-            headers: headers,
-            body: body
-        };
-
-        $.post(request, async (error, response, data) => {
-            try {
-                //$.log(data);
-                const result=JSON.parse(data);           
-                if(result.data&&result.data.score)
-                {
-                    $.log(`【随机宝箱奖励】+${result.data.score}金币`);
-                }
-                else
-                {
-                    $.log(`【随机宝箱奖励】${result.msg}`);
-                }
-
-            } catch (e) {
-                $.log(e)
-            }
-            resolve();
-        })
-    })
-}
-
+*/
 function Env(t, e) {
     class s {
         constructor(t) {
