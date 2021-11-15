@@ -153,7 +153,7 @@ function HomePacket() {
                 }
                 else
                 {
-                    $.log(`【首页红包奖励】${result.msg}`);
+                    $.log(`【首页红包奖励】${result.message}`);
                 }
 
             } catch (e) {
@@ -231,7 +231,7 @@ function TimePacket() {
                 }
                 else
                 {
-                    $.log(`【时段红包奖励】${result.msg}`);
+                    $.log(`【时段红包奖励】${result.message}`);
                 }
 
             } catch (e) {
