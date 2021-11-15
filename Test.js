@@ -29,16 +29,16 @@ function GetSign(timeout = 0) {
             url : 'https://ant.xunsl.com/v5/CommonReward/toGetReward.json',
             headers : {
                 'request_time': '1634452928',
-                'access': `4G`,
-                'device-platform': `android`,
-                'app-version': `8.1.2`,
-                'Content-Type': `application/x-www-form-urlencoded`,
-                'Host': `ant.xunsl.com`,
-                'Connection': `Keep-Alive`,
-                'Accept-Encoding': `gzip`,
-                'User-Agent': `okhttp/3.12.2`
+                'access': '4G',
+                'device-platform': 'android',
+                'app-version': '8.1.2',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Host': 'ant.xunsl.com',
+                'Connection': 'Keep-Alive',
+                'Accept-Encoding': 'gzip',
+                'User-Agent': 'okhttp/3.12.2'
             },
-            body : 'p=W7jvhIkVyrvg=ANvXoumpFwOrXuoVAqVeHT14bq1NhTJzbiqZqy_MXXKS5wUQIXgfDWO7_Ilv4K1nbRGCSK-Hxjb9hXdJ9XKEMvKUOuTNODlUYFP8SbH-vz1IvT96yV-RpDq5kSg9bttEzh5aX-8dMo3_SpTQLSaA2DatIOS47YdSe0iuczTrktPtViTtDLfTA9smSWFKi-5703qBbEAM8GrsZF0V5a9122OY-qgJgzaFMIiqC3RSflM9hpvsaWnOw_-rCYb8u9dDZQQ9KpPV82CDqQID-VyU5PbLk6rmZWHgYHx15pxsGP89SqnTRN9PsvOMj2xj5qFMvc33utOPWKMZA6AiYEBNYeedLZSclCwDeTqMrBolF7YY2VK1MdD-qTyYUcpM6CQ5C_sHD-NVg27ZBQpghfzdb8SdAglHdFZ4SeFMvN3CylL2V4RjCk1bWvWwfPd3oINJI_sNtnQTsExoYQ4wpRvvSyfAt799g0PM7I6iHQz2nJUBJ2k3F88xxwc0H6ypFhWbois2lqhUUozjkjR9Go3X9qZQZrw0a5ZhloJ0_Eb48tXnBRFnM2-L0kyi4W5QpAvOmiFPTROsM4pqTd2YqBHu_GKbKv36eKgbUJzhkuifYjrOtDM1HHghIHqky6tYnkLlbalbngnz6tTqR9fHNHvlPcncd4GAhfozrMzRbbJ6td4-49lQv1UdvTdOFzUjo8wmqWuFbnx3ApQZAKNWO0J8222kZen-Awa9Ev38s0IfFKPiBLsewdoo0HAhBYhhHXpsx_LWQgzZbNlZxxgRT32qU0s_iy2447W6Yuoptu4wNUj4GXc5bXhmD5vSWgjtJn01UfBLUfRAUZ98PAR6VAY96H0k3aujgzaMdfEIDgTzqCqcbuRzcVjZVbcOJMLU0c_nc44kREbswEDTu-mOSAQBjGVKKY8vfXjuVVKAGcZJF906pqJTN8V_Jd5phvdvZy-O7lOJV0MnVbDNc9oVbppdZu_mVVrfQnAP-At_Q-xnz-vG-qF1o97CwO_QcuLFlWHxWM3Ejt_fIkWQNntylvTnTdquIw5dXSnk7oic6za8YUimdFKAG-vyRHQHTbMchB94lFlia7vjBYTyVnRytTdAuOSf9cyOD9pb2F4qskxNxJINCkGI1esDZODlj0qASmO1ODHFHRrnvbL_140e858T3niH8Mn0HSb9eSaGPd4oSL6lVvEV43wWdg==G',}
+            body : 'p=S1HH-fn083Io=oMisThwCJ-M4N7AfqRNmBLNlIZYdczPsacy5M1LBv2_ePTexZoppgkZNDH9txXi_vZJqBXxttelEt4pspONzD6tID-1Q9unup0aWqX-SLYHusdXWvulwNq6vFsMnEmAyr8dcJRAfJ44eZknML4PENZe-iV5gznuXPJoa7OqQJ4Ruqx5VyoI7Ju3l5nA-XOIdZPFzFmyp74tXsKVbbNxkdGILFgOK3j54dXNl0rIjbwlTeAH2j0MfuVedeb8oQeR5DhyYZE6B7f-Bhc8Sh2jzUWIRP7yypE7SaUt6LuB3fRyVhTW2R2gVZbV-fJSxNAzZ74q-0ELrTTxP1NWCVGD76tFXvWSj1-xNMz5-Vy4mQioiEdJ-Xy0jrXMAQYVr5zbfEiTZZwX_LIZGld7i3b6PmSDOc5MLK_Cb5rJFaOhe_04sh7fkcSl-8fmSjKMNKSIVnUfOQ15LZiOoEETW6ig5JNOxOY7rzBxPOHZIej7L99bT5im2vpjGGWWHpY8k0ifKuOYZbLm5HjGDz5ZJTLy6T16w2pSkNy_P9z2NqABsjd63M-dwy7Cj-YAr7lIRTZ-dUuOoH0f_eVVEeZ8XRwOQ203qDRqrGK95-Km9WQgOVsMqtDVdvDVsuav1L7K7FGUE9PeyVSrWXCIOoA4oKl-PMqQ2b6wi4wHYulJfmsG5PhT6Hwh-njnVV3kpRrXbi7neiO2_v8mRr8YJauWHLx7z5eQJp8lYeIkwWpUjOL40JQ_mN-0VOqJ_anRq8KgauuZy_TF2dbKtVgGexHwsrBh3VcCTsRvxg60V9jfRTYLLzYt_7m2aj_j34AUFBuBZOLQaMdH0BOrDx2XxdnBJemzdJIGFQ9rYPLsmfw4N9gNrNfagcK7n0yW-hDKXiK2B-INGPmaghgqzSHVKiNY8yoRPD6H9YlpaIlIJofWUccqRNizOukkfYgKxijpUEVON9daphGIM0ETuZQ7sJNHjF6WitiCb_D2MNORqQupX0dHXr7WZPdeWqGt6kW9FyiwS0D53boxTmre_oyYEJ3cmalAguKYyNbLZosemOtr3wzUPOVSK0ubqusguYo7hIXl9SyadJ4hKyvdO5kdS7Y_vDys6ybDqRJvseTtHkwDj2-EtCjEGiF979IqDn82b_f7yrjrRTT8p1AeSaDgtFDVghqBHZoxWx9IXNiJROk0mfJuTirs=',}
         $.post(url, async (err, resp, data) => {
             try {
 
@@ -65,16 +65,16 @@ function GetSign1(timeout = 0) {
             url : 'https://ant.xunsl.com/v5/CommonReward/toDouble.json',
             headers : {
                 'request_time': '1634452987',
-                'access': `4G`,
-                'device-platform': `android`,
-                'app-version': `8.1.2`,
-                'Content-Type': `application/x-www-form-urlencoded`,
-                'Host': `ant.xunsl.com`,
-                'Connection': `Keep-Alive`,
-                'Accept-Encoding': `gzip`,
-                'User-Agent': `okhttp/3.12.2`
+                'access': '4G',
+                'device-platform': 'android',
+                'app-version': '8.1.2',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Host': 'ant.xunsl.com',
+                'Connection': 'Keep-Alive',
+                'Accept-Encoding': 'gzip',
+                'User-Agent': 'okhttp/3.12.2'
             },
-            body : 'p=S1HH-fn083Io=oMisThwCJ-M4N7AfqRNmBLNlIZYdczPsacy5M1LBv2_ePTexZoppgkZNDH9txXi_vZJqBXxttelEt4pspONzD6tID-1Q9unup0aWqX-SLYHusdXWvulwNq6vFsMnEmAyr8dcJRAfJ44eZknML4PENZe-iV5gznuXPJoa7OqQJ4Ruqx5VyoI7Ju3l5nA-XOIdZPFzFmyp74tXsKVbbNxkdGILFgOK3j54dXNl0rIjbwlTeAH2j0MfuVedeb8oQeR5DhyYZE6B7f-Bhc8Sh2jzUWIRP7yypE7SaUt6LuB3fRyVhTW2R2gVZbV-fJSxNAzZ74q-0ELrTTxP1NWCVGD76tFXvWSj1-xNMz5-Vy4mQioiEdJ-Xy0jrXMAQYVr5zbfEiTZZwX_LIZGld7i3b6PmSDOc5MLK_Cb5rJFaOhe_04sh7fkcSl-8fmSjKMNKSIVnUfOQ15LZiOoEETW6ig5JNOxOY7rzBxPOHZIej7L99bT5im2vpjGGWWHpY8k0ifKuOYZbLm5HjGDz5ZJTLy6T16w2pSkNy_P9z2NqABsjd63M-dwy7Cj-YAr7lIRTZ-dUuOoH0f_eVVEeZ8XRwOQ203qDRqrGK95-Km9WQgOVsMqtDVdvDVsuav1L7K7FGUE9PeyVSrWXCIOoA4oKl-PMqQ2b6wi4wHYulJfmsG5PhT6Hwh-njnVV3kpRrXbi7neiO2_v8mRr8YJauWHLx7z5eQJp8lYeIkwWpUjOL40JQ_mN-0VOqJ_anRq8KgauuZy_TF2dbKtVgGexHwsrBh3VcCTsRvxg60V9jfRTYLLzYt_7m2aj_j34AUFBuBZOLQaMdH0BOrDx2XxdnBJemzdJIGFQ9rYPLsmfw4N9gNrNfagcK7n0yW-hDKXiK2B-INGPmaghgqzSHVKiNY8yoRPD6H9YlpaIlIJofWUccqRNizOukkfYgKxijpUEVON9daphGIM0ETuZQ7sJNHjF6WitiCb_D2MNORqQupX0dHXr7WZPdeWqGt6kW9FyiwS0D53boxTmre_oyYEJ3cmalAguKYyNbLZosemOtr3wzUPOVSK0ubqusguYo7hIXl9SyadJ4hKyvdO5kdS7Y_vDys6ybDqRJvseTtHkwDj2-EtCjEGiF979IqDn82b_f7yrjrRTT8p1AeSaDgtFDVghqBHZoxWx9IXNiJROk0mfJuTirs=',}
+            body : 'p=W7jvhIkVyrvg=ANvXoumpFwOrXuoVAqVeHT14bq1NhTJzbiqZqy_MXXKS5wUQIXgfDWO7_Ilv4K1nbRGCSK-Hxjb9hXdJ9XKEMvKUOuTNODlUYFP8SbH-vz1IvT96yV-RpDq5kSg9bttEzh5aX-8dMo3_SpTQLSaA2DatIOS47YdSe0iuczTrktPtViTtDLfTA9smSWFKi-5703qBbEAM8GrsZF0V5a9122OY-qgJgzaFMIiqC3RSflM9hpvsaWnOw_-rCYb8u9dDZQQ9KpPV82CDqQID-VyU5PbLk6rmZWHgYHx15pxsGP89SqnTRN9PsvOMj2xj5qFMvc33utOPWKMZA6AiYEBNYeedLZSclCwDeTqMrBolF7YY2VK1MdD-qTyYUcpM6CQ5C_sHD-NVg27ZBQpghfzdb8SdAglHdFZ4SeFMvN3CylL2V4RjCk1bWvWwfPd3oINJI_sNtnQTsExoYQ4wpRvvSyfAt799g0PM7I6iHQz2nJUBJ2k3F88xxwc0H6ypFhWbois2lqhUUozjkjR9Go3X9qZQZrw0a5ZhloJ0_Eb48tXnBRFnM2-L0kyi4W5QpAvOmiFPTROsM4pqTd2YqBHu_GKbKv36eKgbUJzhkuifYjrOtDM1HHghIHqky6tYnkLlbalbngnz6tTqR9fHNHvlPcncd4GAhfozrMzRbbJ6td4-49lQv1UdvTdOFzUjo8wmqWuFbnx3ApQZAKNWO0J8222kZen-Awa9Ev38s0IfFKPiBLsewdoo0HAhBYhhHXpsx_LWQgzZbNlZxxgRT32qU0s_iy2447W6Yuoptu4wNUj4GXc5bXhmD5vSWgjtJn01UfBLUfRAUZ98PAR6VAY96H0k3aujgzaMdfEIDgTzqCqcbuRzcVjZVbcOJMLU0c_nc44kREbswEDTu-mOSAQBjGVKKY8vfXjuVVKAGcZJF906pqJTN8V_Jd5phvdvZy-O7lOJV0MnVbDNc9oVbppdZu_mVVrfQnAP-At_Q-xnz-vG-qF1o97CwO_QcuLFlWHxWM3Ejt_fIkWQNntylvTnTdquIw5dXSnk7oic6za8YUimdFKAG-vyRHQHTbMchB94lFlia7vjBYTyVnRytTdAuOSf9cyOD9pb2F4qskxNxJINCkGI1esDZODlj0qASmO1ODHFHRrnvbL_140e858T3niH8Mn0HSb9eSaGPd4oSL6lVvEV43wWdg==G',}
         $.post(url, async (err, resp, data) => {
             try {
 
