@@ -169,7 +169,7 @@ function TimePacket(timeout = 0) {
         let url = {
             url : 'https://ant.xunsl.com/WebApi/TimePacket/getReward',
             headers : {
-                "Referer": `https://ant.xunsl.com/h5/20200612makeMoney/?access=4G&app-version=8.3.2&app_type=jckd&app_version=8.3.2&carrier=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&channel=c1005&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdjW6FooabrqmiapqGcXY&cookie_id=57782dceeac7b9bf1b6bec24a730ce00&device_brand=SMARTISAN&device_id=6f9c21802e9e7d69&device_model=SM919&device_platform=android&device_type=android&inner_version=202109031457&mi=0&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&phone_network=4G&phone_sim=1&request_time=1636964935&resolution=1440x2560&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&subv=1.2.2&time=1636964935&uid=55242014&uuid=a22b385d22664feb807ee85febb9ba55&version_code=832&version_name=%E6%99%B6%E5%BD%A9%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdjW6FooabrqmiapqGcXY&zqkey_id=57782dceeac7b9bf1b6bec24a730ce00`
+                'Referer': 'https://ant.xunsl.com/h5/20200612makeMoney/?access=4G&app-version=8.3.2&app_type=jckd&app_version=8.3.2&carrier=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&channel=c1005&cookie=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdjW6FooabrqmiapqGcXY&cookie_id=57782dceeac7b9bf1b6bec24a730ce00&device_brand=SMARTISAN&device_id=6f9c21802e9e7d69&device_model=SM919&device_platform=android&device_type=android&inner_version=202109031457&mi=0&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&phone_network=4G&phone_sim=1&request_time=1636964935&resolution=1440x2560&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&subv=1.2.2&time=1636964935&uid=55242014&uuid=a22b385d22664feb807ee85febb9ba55&version_code=832&version_name=%E6%99%B6%E5%BD%A9%E7%9C%8B%E7%82%B9&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdjW6FooabrqmiapqGcXY&zqkey_id=57782dceeac7b9bf1b6bec24a730ce00'
             },
             body : '',}
         $.post(url, async (err, resp, data) => {
@@ -227,7 +227,7 @@ function TimePacket1(timeout = 0) {
 function TimingPacket(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
-            url : 'https://ant.xunsl.com/v17/Article/readReward.json',
+            url : 'https://ant.xunsl.com/WebApi/invite/openHourRed',
             headers : {
                 
             },
