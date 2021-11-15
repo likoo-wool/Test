@@ -147,9 +147,9 @@ function HomePacket() {
             try {
                 //$.log(data);
                 const result=JSON.parse(data);           
-                if(result.data&&result.data.score)
+                if(result.data&&result.items.score)
                 {
-                    $.log(`【首页红包奖励】+${result.data.score}金币`);
+                    $.log(`【首页红包奖励】+${result.items.score}金币`);
                 }
                 else
                 {
