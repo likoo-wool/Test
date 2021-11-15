@@ -17,10 +17,11 @@ const $ = Env(jobname)
 
 async function all() {
 
-    await do_sysp();
+    await TimePacket();
     await $.wait(1000); 
   
 }
+/*
 function safeGet(data) {
   try {
     if (typeof JSON.parse(data) == "object") {
@@ -71,7 +72,7 @@ function do_sysp() {
     })
   })
 }
-/*
+*/
 //时段奖励
 function TimePacket() {
     return new Promise((resolve, reject) => {
@@ -92,7 +93,7 @@ function TimePacket() {
                 const result=JSON.parse(data);           
                 if(result.data&&result.data.score)
                 {
-                    $.log(`【计时红包奖励】+${result.data.score}金币`);
+                    $.log(`【计时红包奖励】+${result.items.dialog.score}金币`);
                 }
                 else
                 {
@@ -106,7 +107,7 @@ function TimePacket() {
         })
     })
 }
-*/
+
 
 function Env(t, e) {
     class s {
