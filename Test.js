@@ -22,23 +22,28 @@ async function all() {
  
 }
 
-//首页视频奖励
+//签到
 function GetSign(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
-            url : 'https://kandian.wkandian.com/v17/Article/readReward.json',
+            url : 'https://ant.xunsl.com/v5/CommonReward/toDouble.json',
             headers : {
-                
+                "Connection": "Keep-Alive",
+                "Accept-Encoding": "gzip",
+                "Host": "ant.xunsl.com",
+                "User-Agent": "okhttp/3.12.2"
             },
-            body : 'access=4G&app-version=3.6.0&app_name=zqkd_app&app_version=3.6.0&carrier=CHN-CT&channel=c1031&device_brand=SMARTISAN&device_id=55778744&device_model=SM919&device_platform=android&device_type=android&dpi=560&inner_version=202108181534&language=zh-CN&memory=5&mi=0&mobile_type=1&net_type=2&network_type=4G&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&request_time=1634393779&resolution=1440x2560&rom_version=MXB48T%20release-keys&s_ad=5XPkPrW1Kghg%3DNhhJuevFM6eILQfl9Bknwsnhq-B1DXzL&s_im=fUJybc31G2V0%3DyRLovNm6a6jeSPxDZPHsdA%3D%3DG4&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&storage=52.62&subv=1.2.2&uid=59286327&version_code=63&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl7CFrWaxzYGyhbKp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdgbGFooKart-yapqGcXY&zqkey_id=21a3340390555692a50d0df181fe8b01&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhY2Nlc3MiOiI0RyIsImFwcC12ZXJzaW9uIjoiMy42LjAiLCJhcHBfbmFtZSI6Inpxa2RfYXBwIiwiYXBwX3ZlcnNpb24iOiIzLjYuMCIsImNhcnJpZXIiOiJDSE4tQ1QiLCJjaGFubmVsIjoiYzEwMzEiLCJkZXZpY2VfYnJhbmQiOiJTTUFSVElTQU4iLCJkZXZpY2VfaWQiOiI1NTc3ODc0NCIsImRldmljZV9tb2RlbCI6IlNNOTE5IiwiZGV2aWNlX3BsYXRmb3JtIjoiYW5kcm9pZCIsImRldmljZV90eXBlIjoiYW5kcm9pZCIsImRwaSI6IjU2MCIsImlubmVyX3ZlcnNpb24iOiIyMDIxMDgxODE1MzQiLCJsYW5ndWFnZSI6InpoLUNOIiwibWVtb3J5IjoiNSIsIm1pIjoiMCIsIm1vYmlsZV90eXBlIjoiMSIsIm5ldF90eXBlIjoiMiIsIm5ldHdvcmtfdHlwZSI6IjRHIiwib3BlbnVkaWQiOiI2ZjljMjE4MDJlOWU3ZDY5Iiwib3NfYXBpIjoiMjMiLCJvc192ZXJzaW9uIjoiTVhCNDhUK3JlbGVhc2Uta2V5cyIsInJlcXVlc3RfdGltZSI6IjE2MzQzOTM3NzkiLCJyZXNvbHV0aW9uIjoiMTQ0MHgyNTYwIiwicm9tX3ZlcnNpb24iOiJNWEI0OFQrcmVsZWFzZS1rZXlzIiwic19hZCI6IjVYUGtQclcxS2doZyUzRE5oaEp1ZXZGTTZlSUxRZmw5Qmtud3NuaHEtQjFEWHpMIiwic19pbSI6ImZVSnliYzMxRzJWMCUzRHlSTG92Tm02YTZqZVNQeERaUEhzZEElM0QlM0RHNCIsInNpbSI6IjEiLCJzbV9kZXZpY2VfaWQiOiIyMDIxMDkyOTE2MDUyNzdjZDJlMzVjNzkxMWJjYmIzZjMwYTBmZWNjMjhhMTJiMDFiMjBiODMxYTIxOTc0NCIsInN0b3JhZ2UiOiI1Mi42MiIsInN1YnYiOiIxLjIuMiIsInVpZCI6IjU5Mjg2MzI3IiwidmVyc2lvbl9jb2RlIjoiNjMiLCJ6cWtleSI6Ik1EQXdNREF3TURBd01KQ01wTi13MDlXdGc1LUJiMzZlaDZDUHFIdWFsSWVqbDdDRnJXYXh6WUd5aGJLcDRMRFB5R2w5b25xa2ozWnFZSmE4WTg5OG5haldzSnVwWkxEZGdiR0Zvb0thcnQteWFwcUdjWFkiLCJ6cWtleV9pZCI6IjIxYTMzNDAzOTA1NTU2OTJhNTBkMGRmMTgxZmU4YjAxIn0.g5uYlEEhdke1Wocg_c0Y_Yo2wm21KgMXg_RJEeGeQvAQcvuYvORKHIe4sFfDRklOgz2-BV7VBhsmIMjtgIrY1w',}
+            body : 'p=S1HH-fn083Io=oMisThwCJ-M4N7AfqRNmBLNlIZYdczPsacy5M1LBv2_ePTexZoppgkZNDH9txXi_vZJqBXxttelEt4pspONzD6tID-1Q9unup0aWqX-SLYHusdXWvulwNq6vFsMnEmAyr8dcJRAfJ44eZknML4PENZe-iV5gznuXPJoa7OqQJ4Ruqx5VyoI7Ju3l5nA-XOIdZPFzFmyp74tXsKVbbNxkdGILFgOK3j54dXNl0rIjbwlTeAH2j0MfuVedeb8oQeR5DhyYZE6B7f-Bhc8Sh2jzUWIRP7yypE7SaUt6LuB3fRyVhTW2R2gVZbV-fJSxNAzZ74q-0ELrTTxP1NWCVGD76tFXvWSj1-xNMz5-Vy4mQioiEdJ-Xy0jrXMAQYVr5zbfEiTZZwX_LIZGld7i3b6PmSDOc5MLK_Cb5rJFaOhe_04sh7fkcSl-8fmSjKMNKSIVnUfOQ15LZiOoEETW6ig5JNOxOY7rzBxPOHZIej7L99bT5im2vpjGGWWHpY8k0ifKuOYZbLm5HjGDz5ZJTLy6T16w2pSkNy_P9z2NqABsjd63M-dwy7Cj-YAr7lIRTZ-dUuOoH0f_eVVEeZ8XRwOQ203qDRqrGK95-Km9WQgOVsMqtDVdvDVsuav1L7K7FGUE9PeyVSrWXCIOoA4oKl-PMqQ2b6wi4wHYulJfmsG5PhT6Hwh-njnVV3kpRrXbi7neiO2_v8mRr8YJauWHLx7z5eQJp8lYeIkwWpUjOL40JQ_mN-0VOqJ_anRq8KgauuZy_TF2dbKtVgGexHwsrBh3VcCTsRvxg60V9jfRTYLLzYt_7m2aj_j34AUFBuBZOLQaMdH0BOrDx2XxdnBJemzdJIGFQ9rYPLsmfw4N9gNrNfagcK7n0yW-hDKXiK2B-INGPmaghgqzSHVKiNY8yoRPD6H9YlpaIlIJofWUccqRNizOukkfYgKxijpUEVON9daphGIM0ETuZQ7sJNHjF6WitiCb_D2MNORqQupX0dHXr7WZPdeWqGt6kW9FyiwS0D53boxTmre_oyYEJ3cmalAguKYyNbLZosemOtr3wzUPOVSK0ubqusguYo7hIXl9SyadJ4hKyvdO5kdS7Y_vDys6ybDqRJvseTtHkwDj2-EtCjEGiF979IqDn82b_f7yrjrRTT8p1AeSaDgtFDVghqBHZoxWx9IXNiJROk0mfJuTirs=',}
         $.post(url, async (err, resp, data) => {
             try {
 
                 const result = JSON.parse(data)
                 if(result.success == true){
-                    console.log('\n✅随机宝箱奖励获取成功，获得：'+result.items.score +'比特币🎁')
+                    console.log('\n✅签到成功，获得：'+result.items.score +'比特币✅')
+                    await S.wait(1000);
+                    await GetSign1();
                 }else{
-                    console.log('\n❎随机宝箱奖励获取失败❎')
+                    console.log('\n✅今日已签到，明天再来吧✅')
                 }
             } catch (e) {
             } finally {
@@ -48,7 +53,34 @@ function GetSign(timeout = 0) {
     })
 }
 
+//签到翻倍
+function GetSign1(timeout = 0) {
+    return new Promise((resolve) => {
+        let url = {
+            url : 'https://ant.xunsl.com/v5/CommonReward/toGetReward.json',
+            headers : {
+                "Connection": "Keep-Alive",
+                "Accept-Encoding": "gzip",
+                "Host": "ant.xunsl.com",
+                "User-Agent": "okhttp/3.12.2"
+            },
+            body : 'p=W7jvhIkVyrvg=ANvXoumpFwOrXuoVAqVeHT14bq1NhTJzbiqZqy_MXXKS5wUQIXgfDWO7_Ilv4K1nbRGCSK-Hxjb9hXdJ9XKEMvKUOuTNODlUYFP8SbH-vz1IvT96yV-RpDq5kSg9bttEzh5aX-8dMo3_SpTQLSaA2DatIOS47YdSe0iuczTrktPtViTtDLfTA9smSWFKi-5703qBbEAM8GrsZF0V5a9122OY-qgJgzaFMIiqC3RSflM9hpvsaWnOw_-rCYb8u9dDZQQ9KpPV82CDqQID-VyU5PbLk6rmZWHgYHx15pxsGP89SqnTRN9PsvOMj2xj5qFMvc33utOPWKMZA6AiYEBNYeedLZSclCwDeTqMrBolF7YY2VK1MdD-qTyYUcpM6CQ5C_sHD-NVg27ZBQpghfzdb8SdAglHdFZ4SeFMvN3CylL2V4RjCk1bWvWwfPd3oINJI_sNtnQTsExoYQ4wpRvvSyfAt799g0PM7I6iHQz2nJUBJ2k3F88xxwc0H6ypFhWbois2lqhUUozjkjR9Go3X9qZQZrw0a5ZhloJ0_Eb48tXnBRFnM2-L0kyi4W5QpAvOmiFPTROsM4pqTd2YqBHu_GKbKv36eKgbUJzhkuifYjrOtDM1HHghIHqky6tYnkLlbalbngnz6tTqR9fHNHvlPcncd4GAhfozrMzRbbJ6td4-49lQv1UdvTdOFzUjo8wmqWuFbnx3ApQZAKNWO0J8222kZen-Awa9Ev38s0IfFKPiBLsewdoo0HAhBYhhHXpsx_LWQgzZbNlZxxgRT32qU0s_iy2447W6Yuoptu4wNUj4GXc5bXhmD5vSWgjtJn01UfBLUfRAUZ98PAR6VAY96H0k3aujgzaMdfEIDgTzqCqcbuRzcVjZVbcOJMLU0c_nc44kREbswEDTu-mOSAQBjGVKKY8vfXjuVVKAGcZJF906pqJTN8V_Jd5phvdvZy-O7lOJV0MnVbDNc9oVbppdZu_mVVrfQnAP-At_Q-xnz-vG-qF1o97CwO_QcuLFlWHxWM3Ejt_fIkWQNntylvTnTdquIw5dXSnk7oic6za8YUimdFKAG-vyRHQHTbMchB94lFlia7vjBYTyVnRytTdAuOSf9cyOD9pb2F4qskxNxJINCkGI1esDZODlj0qASmO1ODHFHRrnvbL_140e858T3niH8Mn0HSb9eSaGPd4oSL6lVvEV43wWdg==G',}
+        $.post(url, async (err, resp, data) => {
+            try {
 
+                const result = JSON.parse(data)
+                if(result.success == true){
+                    console.log('\n✅签到翻倍成功，获得：'+result.items.score +'比特币✅')
+                }else{
+                    console.log('\n❎签到翻倍失败❎')
+                }
+            } catch (e) {
+            } finally {
+                resolve()
+            }
+            },timeout)
+    })
+}
 
 function Env(t, e) {
     class s {
