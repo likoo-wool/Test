@@ -67,7 +67,7 @@ function GetSign() {
                 }
                 else
                 {
-                    $.log(`【签到奖励】${result.msg}`);
+                    $.log(`【签到奖励】${result.message}`);
                 }
 
             } catch (e) {
