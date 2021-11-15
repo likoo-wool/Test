@@ -26,14 +26,14 @@ async function all() {
 function GetSign(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
-            url : 'https://kandian.wkandian.com/v5/CommonReward/toDouble.json',
+            url : 'https://kandian.wkandian.com/v5/CommonReward/toGetReward.json',
             headers : {
                 'device-platform': 'android',
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Content-Length': '1247',
                 'Host': 'kandian.wkandian.com'
             },
-            body : 'p=O2JgR8oZr6IU%3Dg4zC6MxcJKioKqB_W472y4JWf7KlabFNi2uBSaXys716ZHv6Uu_BL7r1yP2ABzf2-y6vCaz8ky-uCCkSvbUfdh8lmfoHBw7id4PdZENPbyYNAH1RBlmEOVIhKbRgDSq4w9VrfD7QupS7c08Be9e3zpO3vIXydc4p5Qkwcf0iJX33KdaofPJUqrM_bpb6RiQ-nm8p-DRvCRACq2YMvaJRt4CErJL06IBDxk-P9WUrLk21uLqiWNUbXEDdRBT5lbXghMATPHGJh7x-rYScjjSn_FmZLwtQJrOkLwxkRojeKtn4xlLNXRkBZJW5zllDkumVEXkkV_yixxxh72kYUQCzhpsF9ZZgHksISFVUcy8t-cmgGkwAdUy7IwUJG01AtjnOMfrh9RoWtNA-eCd12C3I-07f_QkkjSPlewrF4GwUhDqekAorWISVHXETYo089garv1496GeO_pN-9kYSPOMXfZlIoKrUQdmflJKQys_hLuTvXV1jIcC1mqo4rzmgDXRHmlyZ4KNbno-UmOeCs-00hd1840xZQ64W7-9M-GBCU6aOYwe0gS4nL1-VTLpSuUefFA9ZrpQhARRZFShZGcvjASXCUISvw0eoiOC0mDuf5haQuwDKIqKkpoXx8EqsswB32ivsIAfyt-zfypcjEsBQ786Etwx7QFsPuXVYiB2udJfKF9V3nI-kDpCoiGCEoGyr4BAbYRMZk_VBfDa5rn4G_dteX1DuVIAc_7CIgIN3uq0T7L01y9iN8kWfsNqmAxLgELEEJKPkUhWpYav0xffNaSNIeaKkrf-A0lmLnZqZnH5ar2qI8S8yqNcIIXJvQTpWkBAlhnXjD71OnspzRUsO9h0CY8fN20Izxx_K34EMoMAucT1I51tQWuedqW7RUt2eaKtGn-DjoVh5NKqKNhGIlRC85nzTmAvW-oVv6_E2gUJK7hgTPThEG_4V5eGxUUwZ6hEQKrp0h8Cb8wvoTOf8OKnWE2nluyLeirdTuYz3pyNzCZp_D3Vy3J8BV4BuclabrKdu2X25qdlxrmB3Ygob16DIKT-shrHbt3w_HC_RWut89Vg0T0KUr9-_dtbxj2PFq5y4eDhiVCbrqAiNyYS9256uT4VXng_ujjSoNq-dz7h6MbGV8nq_969yrJ0TgEkXgAGdygs_BNChCFN-BAeX7YQD_Povt71083rS46aC8vtUDY6f8weD0uX4A6g-auf7VaATM-cYd7H8Xh02KnjS_CvRY83awH6B',}
+            body : 'p=gXPkPrW1Kghg%3DmMqn7vp9U7SFlVURG78cq6t2RCRlFBM7_Xa8sb5mfy9fF5uJ0TlIBvA5czCMJg6BL8IJeta_qgm7kYpi8KrXiLwgVuTrSR_nJAUnW3qPIbilZT9wabvuPsxJuuS5neUfORU-HQJ4fsBqv_VvC_V1_zdhAeERAdcwkFug1pVttXH4Ij5MehBq9xT7-uarxnA-6U--GW6UwrvgPx0eocrrIFmAB9Beo_Y2q0Dzx2bSxpU9c4k4k0ERmmb0Ljql3PWSBKBF1mZErajzwCoUuBGSk4YgXrUC4gP8y5ozU85AfOdYMS71e5B6CfOzJAjoa7DwR-OPCtuoNbcmrDctgeIH15T5TyOWj0wAIOSMCdp3flMKZ-VnmCoMT2czBOdEe0Pgld-eq7ZxjqrnsX8r6e6Y3lOoc0wkD_FZO-lLxHk1Vi1GxWjJfNKXZoGEDFt2mqwd6Wwa0nAWU1IfZ0qIb4UUTNQKULvYGCjXptzOQcz0-N82PBnlD829YmwS0-eyhh7PVwBEUui72qYiHNQRkeXvr1I26-kAX7PCm9G1LKscQjI5Xk8yrC3Fav4pcY3eTwbsk3uAE_G-LwNT7IBwYb2jv7yhrjRq9XqkIS2RSHHseHmd-EME5pY_hWbi5HUYDZmeUsxZQDtfm_Gkt4wlS4wnSD81Fj1Bfhn0KmA9lj6UAsTGzTQ6vO65-MlZUtEbLVEwyeb1Joc9BqUnogLI1KqgpPnEjrCST2nhO8oxTGlR9FZzqmRN4l7wIY4KP-myPzUibxZ9SpWO2yxXvCZloVKHCdlbkhT5Vi1krvnmdk4xN6l1YO0DWJh6vmzHi1mYRLyiKdVM9ATZwXkld9lf2SI1-6R33dQ4qxiBcN-l-s_ZjRm-vFeA4fEvxo3STHmbxTXptE_Clf45A4Vxp_nMDqFI5IJMhAz49uF_Ey75avTrXGukpgXHHWTojBmiFiIJyVv_9KLVZs_W0CdhLiHoyeIYCB1DIT9p9GvObgRD5txW3ce0vnFHnCwHtxa97yvQNdcAu5eNtUXDP5M0pPikkOPsO6GuXFTCj5i-azIBWGfH82GUqxcOxf0Jum_i9GOnNmBlHLBb_uLKoo94xqsggW5ZwoIlAnyAcGpuM3OjLeyzCfrBOy0S7naP4etXNKJERIZiaW8Tf391DThVCFCbotRqH5u8qGY-0KTb6YJXKetP-J3HsAT_dUMOWTYX2-46sx6u2Dpx9gaGtwtRsxGqTNkQyw%3D%3D',}
         $.post(url, async (err, resp, data) => {
             try {
 
@@ -57,14 +57,14 @@ function GetSign(timeout = 0) {
 function GetSign1(timeout = 0) {
     return new Promise((resolve) => {
         let url = {
-            url : 'https://kandian.wkandian.com/v5/CommonReward/toGetReward.json',
+            url : 'https://kandian.wkandian.com/v5/CommonReward/toDouble.json',
             headers : {
                 'device-platform': 'android',
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Content-Length': '1247',
                 'Host': 'kandian.wkandian.com'
             },
-            body : 'p=gXPkPrW1Kghg%3DmMqn7vp9U7SFlVURG78cq6t2RCRlFBM7_Xa8sb5mfy9fF5uJ0TlIBvA5czCMJg6BL8IJeta_qgm7kYpi8KrXiLwgVuTrSR_nJAUnW3qPIbilZT9wabvuPsxJuuS5neUfORU-HQJ4fsBqv_VvC_V1_zdhAeERAdcwkFug1pVttXH4Ij5MehBq9xT7-uarxnA-6U--GW6UwrvgPx0eocrrIFmAB9Beo_Y2q0Dzx2bSxpU9c4k4k0ERmmb0Ljql3PWSBKBF1mZErajzwCoUuBGSk4YgXrUC4gP8y5ozU85AfOdYMS71e5B6CfOzJAjoa7DwR-OPCtuoNbcmrDctgeIH15T5TyOWj0wAIOSMCdp3flMKZ-VnmCoMT2czBOdEe0Pgld-eq7ZxjqrnsX8r6e6Y3lOoc0wkD_FZO-lLxHk1Vi1GxWjJfNKXZoGEDFt2mqwd6Wwa0nAWU1IfZ0qIb4UUTNQKULvYGCjXptzOQcz0-N82PBnlD829YmwS0-eyhh7PVwBEUui72qYiHNQRkeXvr1I26-kAX7PCm9G1LKscQjI5Xk8yrC3Fav4pcY3eTwbsk3uAE_G-LwNT7IBwYb2jv7yhrjRq9XqkIS2RSHHseHmd-EME5pY_hWbi5HUYDZmeUsxZQDtfm_Gkt4wlS4wnSD81Fj1Bfhn0KmA9lj6UAsTGzTQ6vO65-MlZUtEbLVEwyeb1Joc9BqUnogLI1KqgpPnEjrCST2nhO8oxTGlR9FZzqmRN4l7wIY4KP-myPzUibxZ9SpWO2yxXvCZloVKHCdlbkhT5Vi1krvnmdk4xN6l1YO0DWJh6vmzHi1mYRLyiKdVM9ATZwXkld9lf2SI1-6R33dQ4qxiBcN-l-s_ZjRm-vFeA4fEvxo3STHmbxTXptE_Clf45A4Vxp_nMDqFI5IJMhAz49uF_Ey75avTrXGukpgXHHWTojBmiFiIJyVv_9KLVZs_W0CdhLiHoyeIYCB1DIT9p9GvObgRD5txW3ce0vnFHnCwHtxa97yvQNdcAu5eNtUXDP5M0pPikkOPsO6GuXFTCj5i-azIBWGfH82GUqxcOxf0Jum_i9GOnNmBlHLBb_uLKoo94xqsggW5ZwoIlAnyAcGpuM3OjLeyzCfrBOy0S7naP4etXNKJERIZiaW8Tf391DThVCFCbotRqH5u8qGY-0KTb6YJXKetP-J3HsAT_dUMOWTYX2-46sx6u2Dpx9gaGtwtRsxGqTNkQyw%3D%3D',}
+            body : 'p=O2JgR8oZr6IU%3Dg4zC6MxcJKioKqB_W472y4JWf7KlabFNi2uBSaXys716ZHv6Uu_BL7r1yP2ABzf2-y6vCaz8ky-uCCkSvbUfdh8lmfoHBw7id4PdZENPbyYNAH1RBlmEOVIhKbRgDSq4w9VrfD7QupS7c08Be9e3zpO3vIXydc4p5Qkwcf0iJX33KdaofPJUqrM_bpb6RiQ-nm8p-DRvCRACq2YMvaJRt4CErJL06IBDxk-P9WUrLk21uLqiWNUbXEDdRBT5lbXghMATPHGJh7x-rYScjjSn_FmZLwtQJrOkLwxkRojeKtn4xlLNXRkBZJW5zllDkumVEXkkV_yixxxh72kYUQCzhpsF9ZZgHksISFVUcy8t-cmgGkwAdUy7IwUJG01AtjnOMfrh9RoWtNA-eCd12C3I-07f_QkkjSPlewrF4GwUhDqekAorWISVHXETYo089garv1496GeO_pN-9kYSPOMXfZlIoKrUQdmflJKQys_hLuTvXV1jIcC1mqo4rzmgDXRHmlyZ4KNbno-UmOeCs-00hd1840xZQ64W7-9M-GBCU6aOYwe0gS4nL1-VTLpSuUefFA9ZrpQhARRZFShZGcvjASXCUISvw0eoiOC0mDuf5haQuwDKIqKkpoXx8EqsswB32ivsIAfyt-zfypcjEsBQ786Etwx7QFsPuXVYiB2udJfKF9V3nI-kDpCoiGCEoGyr4BAbYRMZk_VBfDa5rn4G_dteX1DuVIAc_7CIgIN3uq0T7L01y9iN8kWfsNqmAxLgELEEJKPkUhWpYav0xffNaSNIeaKkrf-A0lmLnZqZnH5ar2qI8S8yqNcIIXJvQTpWkBAlhnXjD71OnspzRUsO9h0CY8fN20Izxx_K34EMoMAucT1I51tQWuedqW7RUt2eaKtGn-DjoVh5NKqKNhGIlRC85nzTmAvW-oVv6_E2gUJK7hgTPThEG_4V5eGxUUwZ6hEQKrp0h8Cb8wvoTOf8OKnWE2nluyLeirdTuYz3pyNzCZp_D3Vy3J8BV4BuclabrKdu2X25qdlxrmB3Ygob16DIKT-shrHbt3w_HC_RWut89Vg0T0KUr9-_dtbxj2PFq5y4eDhiVCbrqAiNyYS9256uT4VXng_ujjSoNq-dz7h6MbGV8nq_969yrJ0TgEkXgAGdygs_BNChCFN-BAeX7YQD_Povt71083rS46aC8vtUDY6f8weD0uX4A6g-auf7VaATM-cYd7H8Xh02KnjS_CvRY83awH6B',}
         $.post(url, async (err, resp, data) => {
             try {
 
