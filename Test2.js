@@ -17,7 +17,7 @@ const $ = Env(jobname)
 
 async function all() {
 
-    await GetSign1();
+    await GetSign();
     await $.wait(1000); 
  
 }
@@ -40,7 +40,7 @@ function GetSign(timeout = 0) {
                 const result = JSON.parse(data)
                 if(result.success == true){
                     console.log('\n✅签到成功，获得：'+result.items.score +'比特币✅')
-                    await S.wait(1000);
+                    await $.wait(1000);
                     await GetSign1();
                 }else{
                     console.log('\n✅今日已签到，明天再来吧✅')
