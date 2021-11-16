@@ -17,7 +17,7 @@ const $ = Env(jobname)
 
 async function all() {
 
-    await GetSign();
+    await GetSign1();
     await $.wait(1000); 
  
 }
