@@ -106,7 +106,7 @@ async function readArticle(wzBody,idx) {
     
     if(result.success == true) {
         finishCount++
-        let randomTime = Math.floor(Math.random()*10000)+60000
+        let randomTime = Math.floor(Math.random()*1000)+1000
         let score = result.items.read_score || 0
         rewardAmount += parseInt(score)
         console.log(`浏览第${idx+1}篇文章获得${score}金币，随机延迟${randomTime}ms后刷阅读时长`)
