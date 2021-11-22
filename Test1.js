@@ -82,7 +82,7 @@ async function checkEnv() {
     
     if(jctqLookStartbody.indexOf('&') > -1) {
         jctqLookStartbodyArr = jctqLookStartbody.split('&')
-    } else {
+    } else if{
         jctqLookStartbodyArr.push(jctqLookStartbody)
     } else if($.isNode()){
     var fs = require("fs");
@@ -100,7 +100,7 @@ async function checkEnv() {
             for(let i=0; i<jctqCookies.length; i++) {
                 jctqCookieArr.push(replaceCookie(jctqCookies[i]))
             }
-        } else {
+        } else if{
             
             jctqCookieArr.push(replaceCookie(jctqCookie))
         }
