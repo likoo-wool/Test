@@ -37,9 +37,9 @@ async function all() {
 		tsxx += `\n${username} 脚本开始时间:${txtime}\n`;
 		await $.wait(randomNum());
         await DailySign();
-        await $.wait(randomNum());
+        await $.wait(randomNum(1000, 1000));
         await DailyCheck();
-        await $.wait(randomNum());
+        await $.wait(randomNum(1000, 1000));
         await ArticelsList();
         for (let i = 0; i < articleidarr.length; i++) {
             await ArticleFinish(articleidarr[i]);
