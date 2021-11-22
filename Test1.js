@@ -60,7 +60,7 @@ let withdrawSuccess = 0
             await toGetReward(rewardBody,i)
             await $.wait(2000)
         }
-        
+        /*
         numBoxbody = jctqSignDoubleBodyArr.length
         console.log(`找到${numBoxbody}个签到翻倍body，观看32秒视频后开始领取下一个`)
         
@@ -69,7 +69,7 @@ let withdrawSuccess = 0
             await $.wait(32000)
             await toDouble(rewardBody)
         }
-        
+        */
         if(jctqWithdrawFlag > 0 && jctqWithdrawArr.length > 0) {
             numBoxbody = jctqWithdrawArr.length
             console.log(`找到${numBoxbody}个提现body`)
@@ -206,6 +206,8 @@ async function toGetReward(rewardBody,idx) {
             let signStr = ''
             if(result.items.title && result.items.title.indexOf('签到成功') > -1) signStr = '签到'
             console.log(`领取第${idx+1}个奖励成功，${signStr}获得${result.items.score}金币`)
+            await $.wait(32000)
+            await toDouble(rewardBody)
         }
     } else {
         console.log(`领取第${idx+1}个奖励失败：${result.message}`)
@@ -241,7 +243,7 @@ async function getBalance(cookie) {
     
     if(result.status == 0) {
         notifyStr += `【账号昵称】：${result.user.nickname}\n`
-        notifyStr += `【签到结果】：${result.data.score}\n`
+        notifyStr += `【签到结果】：${result.items.score}\n`
         notifyStr += `【金币总数】：${result.user.score}\n`
         notifyStr += `【今日收益】：${result.user.today_score}\n`
         for(let i=0; i<result.history.length; i++) {
