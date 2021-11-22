@@ -1,7 +1,7 @@
 const $ = new Env('柠檬九章头条');
 let status;
 status = (status = ($.getval("jzreadstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
-let jzreadurlArr = 'DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp',jzreadcount = 'DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp'
+let jzreadurlArr = [],jzreadcount = ''
 //let jzreadurl= $.isNode() ? (process.env.jzreadurl ? process.env.jzreadurl : "") : ($.getdata('jzreadurl') ? $.getdata('jzreadurl') : "")
 let cashtx= $.isNode() ? (process.env.cashtx ? process.env.cashtx : "") : ($.getdata('cashtx') ? $.getdata('cashtx') : "")
 let jzreadurls = "DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp"
@@ -116,7 +116,7 @@ async function benefit(){
     token = jzreadurl.match(/token=(\S{32})/)[1]
 
     let nm = {
-     url: `https://api.st615.com/v1/index/benefit?token=${token}`,
+     url: `https://api.st615.com/v1/index/benefit?token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
               headers:{
 'Host': 'api.st615.com',
 'Content-Type':' application/x-www-form-urlencoded; charset=utf-8',
@@ -156,7 +156,7 @@ async function clock(){
 
 let nm = {
      url: `https://api.st615.com/v1/task/clock`,
-      body:  `is_double=0&token=${token}`,
+      body:  `is_double=0&token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
       headers:{
 'Host': 'api.st615.com',
 'Content-Type':' application/x-www-form-urlencoded; charset=utf-8',
@@ -194,7 +194,7 @@ async function doublesign(){
     token = jzreadurl.match(/token=(\S{32})/)[1]
     let nm = {
      url: `https://api.st615.com/v1/task/continue`,
-      body:  `token=`+token,
+      body:  `token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
               headers:{
 'Host': 'api.st615.com',
 'Content-Type':' application/x-www-form-urlencoded; charset=utf-8',
@@ -274,7 +274,7 @@ async function doads(id){
      token = jzreadurl.match(/token=(\S{32})/)[1]
  let nm = {
      url: `https://api.st615.com/v1/task/ads`,
-      body:  `token=`+token+`&id=${id}`,
+      body:  `token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`+`&id=${id}`,
         //id 8 9 10 11 sign1/94
             headers:{
 'Host': 'api.st615.com',
@@ -312,7 +312,7 @@ async function doads(id){
     token = jzreadurl.match(/token=(\S{32})/)[1]
 
     let nm = {
-     url: `https://api.st615.com/v1/article/list?cid=0&page=1&limit=10&type=0&terminal=Apple&version=1.2.3&token=${token}`,
+     url: `https://api.st615.com/v1/article/list?cid=0&page=1&limit=10&type=0&terminal=Apple&version=1.2.3&token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
      //body:  `token=`+token,
              headers:{
 'Host': 'api.st615.com',
@@ -361,7 +361,7 @@ async function doads(id){
    token = jzreadurl.match(/token=(\S{32})/)[1]
 
     let nm = {
-     url: `https://api.st615.com/v1/comment/list?&article_id=${id}&page=1&limit=10&token=`+token,
+     url: `https://api.st615.com/v1/comment/list?&article_id=${id}&page=1&limit=10&token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
      //body:  `token=`+token,
            headers:{
 'Host': 'api.st615.com',
@@ -403,7 +403,7 @@ async function doads(id){
 
     let nm = {
      url: `https://api.st615.com/v1/article/finish`,
-     body:  `id=${id}&token=${token}`,
+     body:  `id=${id}&token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
            headers:{
 'Host': 'api.st615.com',
 'Accept-Language': 'zh-Hans-CN;q=1.0, zh-Hant-HK;q=0.9, zh-Hant-CN;q=0.8',
@@ -443,7 +443,7 @@ async function doads(id){
 
     let nm = {
      url: `https://api.st615.com/v1/sign/sign`,
-     body:  `token=`+token,
+     body:  `token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
            headers:{
 'Host': 'api.st615.com',
 'Content-Type':' application/x-www-form-urlencoded; charset=utf-8',
@@ -480,7 +480,7 @@ async function doads(id){
     token = jzreadurl.match(/token=(\S{32})/)[1]
 
     let nm = {
-     url: `https://api.st615.com/v1/article/list?type=2&cid=35&page=1&terminal=Apple&version=1.2.3&token=`+token,
+     url: `https://api.st615.com/v1/article/list?type=2&cid=35&page=1&terminal=Apple&version=1.2.3&token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
      //body:  `token=`+token,
              headers:{
 'Host': 'api.st615.com',
@@ -527,7 +527,7 @@ async function doads(id){
 
     let nm = {
      url: `https://api.st615.com/v1/article/share`,
-     body:  `device=iPhone%208%20Plus&id=&os=14.4&source=article&token=`+token,
+     body:  `device=iPhone%208%20Plus&id=&os=14.4&source=article&token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
             headers:{
 'Host': 'api.st615.com',
 'Content-Type':' application/x-www-form-urlencoded; charset=utf-8',
@@ -564,7 +564,7 @@ async function doads(id){
     token = jzreadurl.match(/token=(\S{32})/)[1]
 
     let nm = {
-     url: `https://api.st615.com/v1/cash/ads?token=${token}&source=cash`,
+     url: `https://api.st615.com/v1/cash/ads?token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp&source=cash`,
      //body:  `device=iPhone%208%20Plus&id=${id}&os=14.4&source=article&token=`+token,
              headers:{
 'Host': 'api.st615.com',
@@ -603,7 +603,7 @@ async function doads(id){
 
     let nm = {
      url: `https://api.st615.com/v1/cash/withdraw-new`,
-     body:  `token=${token}&type=1&money=0.3`,
+     body:  `token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp&type=1&money=0.3`,
            headers:{
 'Host': 'api.st615.com',
 'Content-Type':' application/x-www-form-urlencoded; charset=utf-8',
@@ -641,7 +641,7 @@ async function doads(id){
     token = jzreadurl.match(/token=(\S{32})/)[1]
 
     let nm = {
-     url: `https://api.st615.com/v1/article/list?type=2&cid=35&page=1&terminal=Apple&version=1.2.3&token=`+token,
+     url: `https://api.st615.com/v1/article/list?type=2&cid=35&page=1&terminal=Apple&version=1.2.3&token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
      //body:  `token=`+token,
              headers:{
 'Host': 'api.st615.com',
@@ -687,7 +687,7 @@ async function doads(id){
     token = jzreadurl.match(/token=(\S{32})/)[1]
 
     let nm = {
-     url: `https://api.st615.com/v1/index/get-benefit?token=${token}`,
+     url: `https://api.st615.com/v1/index/get-benefit?token=DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp`,
      
             headers:{
 'Host': 'api.st615.com',
