@@ -1,9 +1,16 @@
+/*
+安卓：晶彩天气(v8.3.7)
+
+此脚本负责：
+完成看看赚任务，删除重复和失效的body
+*/
+
 const jsname = '晶彩天气看看赚'
 const $ = Env(jsname)
 const notifyFlag = 1; //0为关闭通知，1为打开通知,默认为1
 const logDebug = 0
 
-const notify = $.isNode() ? require('./sendNotify') : '';
+//const notify = $.isNode() ? require('./sendNotify') : '';
 let notifyStr = ''
 
 let rndtime = "" //毫秒
@@ -69,7 +76,7 @@ async function showmsg() {
 
     if (notifyFlag == 1) {
         $.msg(notifyBody);
-        if ($.isNode()){await notify.sendNotify($.name, notifyBody );}
+        //if ($.isNode()){await notify.sendNotify($.name, notifyBody );}
     }
 }
 
@@ -82,11 +89,8 @@ async function checkEnv() {
     
     if(jctqLookStartbody.indexOf('&') > -1) {
         jctqLookStartbodyArr = jctqLookStartbody.split('&')
-    }else if($.isNode()){
-    var fs = require("fs");
-    jctqLookStartbody = fs.readFileSync("jctqLookStartbody", "utf8");
-    if (jctqLookStartbody !== `undefined`) {
-        jctqLookStartbody = jctqLookStartbody.split("\n");
+    } else {
+        jctqLookStartbodyArr.push(jctqLookStartbody)
     }
     
     let numBody = jctqLookStartbodyArr.length
@@ -98,11 +102,10 @@ async function checkEnv() {
             for(let i=0; i<jctqCookies.length; i++) {
                 jctqCookieArr.push(replaceCookie(jctqCookies[i]))
             }
-        }else if($.isNode()){
-    var fs = require("fs");
-    jctqCookie = fs.readFileSync("jctqCookie.txt", "utf8");
-    if (jctqCookie !== `undefined`) {
-        jctqCookie = jctqCookie.split("\n");
+        } else {
+            
+            jctqCookieArr.push(replaceCookie(jctqCookie))
+        }
     }
     
     return true
