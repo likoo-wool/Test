@@ -243,7 +243,7 @@ async function getBalance(cookie) {
     
     if(result.status == 0) {
         notifyStr += `【账号昵称】：${result.user.nickname}\n`
-        notifyStr += `【签到结果】：${result.user.score}\n`
+        notifyStr += `【签到结果】：${toGetReward.result.items.title}\n`
         notifyStr += `【金币总数】：${result.user.score}\n`
         notifyStr += `【今日收益】：${result.user.today_score}\n`
         for(let i=0; i<result.history.length; i++) {
