@@ -231,19 +231,18 @@ async function toDouble(rewardBody) {
         console.log(`签到翻倍失败：${result.message}`)
     }
 }
-
 //今日收益
 async function getBalance(cookie) {
     let caller = printCaller()
-    let url = 'https://tq.xunsl.com/wap/user/balance?keyword_wyq=woyaoq.com&' + cookie
+    let url = 'https://tq.xunsl.com/v3/user/userinfo.json?' + cookie
     let urlObject = populateGetUrl(url)
     await httpGet(urlObject,caller)
     let result = httpResult;
     if(!result) return
     
     if(result.status == 0) {
-        notifyStr += `【账号昵称】：${result.user.nickname}\n`
-        notifyStr += `【签到结果】：${result.user.toGetReward}\n`
+        notifyStr += `【账号昵称】：${result.items.nickname}\n`
+        notifyStr += `【签到结果】：${result.items.sign_status}\n`
         notifyStr += `【金币总数】：${result.user.score}\n`
         notifyStr += `【今日收益】：${result.user.today_score}\n`
         for(let i=0; i<result.history.length; i++) {
@@ -260,7 +259,34 @@ async function getBalance(cookie) {
         console.log(`查询今日收益失败：${result.message}`)
     }
 }
-
+/*
+//今日收益
+async function getBalance(cookie) {
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/wap/user/balance?keyword_wyq=woyaoq.com&' + cookie
+    let urlObject = populateGetUrl(url)
+    await httpGet(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.status == 0) {
+        notifyStr += `【金币总数】：${result.user.score}\n`
+        notifyStr += `【今日收益】：${result.user.today_score}\n`
+        for(let i=0; i<result.history.length; i++) {
+            let rewardItem = result.history[i]
+            if(rewardItem.newdate.indexOf('今日收益') > -1) {
+                for(let j=0; j<rewardItem.group.length; j++) {
+                    let groupItem = rewardItem.group[j]
+                    notifyStr += `【${groupItem.name}】：${groupItem.money}\n`
+                }
+                break;
+            }
+        }
+    } else {
+        console.log(`查询今日收益失败：${result.message}`)
+    }
+}
+*/
 //提现
 async function withdraw(withBody) {
     let caller = printCaller()
