@@ -27,4 +27,4 @@ jobs:
       - name: '运行 【syjl】'
         run: |
           
-          node syjl.js
+          node 3.js
