@@ -29,13 +29,12 @@ var timestamp = Math.round(new Date().getTime()/1000).toString();
         
           console.log(`\n开始【九章头条${$.index}】`)
 
-     await benefit()
+       await benefit()
        await clock()
        await share()
        await share()
        await share()
        await cashads()
-       await info()
        await doublesign()
        await sign1()
        await doads(94)//8 9 10 11 sign1/94
@@ -46,7 +45,6 @@ var timestamp = Math.round(new Date().getTime()/1000).toString();
        await doads(77)
        await getbenefit()
 
-       //await info()
 
 
   }
