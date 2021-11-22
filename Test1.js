@@ -2,13 +2,10 @@
 安卓：晶彩天气(v8.3.7)
 
 此脚本负责：
-签到和翻倍，任务奖励领取，统计今日收益，自动提现
-
-请将定时放在看看赚和阅读任务后面
-如果不想自动提现的，请不要捉提现body，或者新建环境变量jctqWithdrawFlag，写成0
+领转发页定时宝箱，领福利页定时宝箱，领首页气泡红包，时段转发，刷福利视频，抽奖5次
 */
 
-const jsname = '晶彩天气任务签到'
+const jsname = '晶彩天气日常'
 const $ = Env(jsname)
 const notifyFlag = 1; //0为关闭通知，1为打开通知,默认为1
 const logDebug = 0
@@ -19,26 +16,23 @@ let notifyStr = ''
 let rndtime = "" //毫秒
 let httpResult //global buffer
 
-let numBoxbody
+let userCookie = ''
 
-let jctqWithdrawFlag =   ($.isNode() ? process.env.jctqWithdrawFlag   : $.getdata('jctqWithdrawFlag'))   || 1;
-//let jctqBoxbody =        ($.isNode() ? process.env.jctqBoxbody        : $.getdata('jctqBoxbody'))        || '';
-//let jctqQdBody =         ($.isNode() ? process.env.jctqQdBody         : $.getdata('jctqQdBody'))         || '';
-//let jctqSignDoubleBody = ($.isNode() ? process.env.jctqSignDoubleBody : $.getdata('jctqSignDoubleBody')) || '';
-let jctqWithdraw =       ($.isNode() ? process.env.jctqWithdraw       : $.getdata('jctqWithdraw'))       || '';
-//let jctqCookie =         ($.isNode() ? process.env.jctqCookie         : $.getdata('jctqCookie'))         || '';
+let jctqCookie = ($.isNode() ? process.env.jctqCookie : $.getdata('jctqCookie')) || '';
+let jctqBubbleBody = ($.isNode() ? process.env.jctqBubbleBody : $.getdata('jctqBubbleBody')) || '';
+let jctqGiveBoxBody = ($.isNode() ? process.env.jctqGiveBoxBody : $.getdata('jctqGiveBoxBody')) || '';
 
-let jctqQdBody = 'p=X9XQc_gCBVVg=aTDrO5aIwhCAKNZRuv2ueMhw7Zcg5h42a1Aw5MI2lGZvjmFuMQvZOj2o4UjxSd86l72fVMUiU_6sSpeZAxhRviY20ZC7mgGgueJIFjx5GX0ZToO3ebbCYHc_iyZ5MJNtcaKmh07nH-HAIks7fmcvGfxlK_6dWdF4KtPIAM9YR4TC0el5vbBkOjocpNT0OpLde5E518qmYEmj0qb5_G-gmWgZ2aaZTurqbaV7-q2rwkV4A-aNko1H0IRW_1QYzGEX80XpVgrDIVnx6WbaJAYwQmjWnHD1SNjD3i0bJsTDU9G0pPIll08pf3_LXuzwBNaIim0bS6rP7MJOB75d8yLgOBwRRMWmT3Kx_7prf1I5XFyCrQbBlsbaQ8acTv8y1vmEnyxkThRZWz4Rv2fVAZVHTZEWL_2b6wPAGZhmgiHX8iUhwtN5MyopTTOBxW9rskqKfOaxg_NMVfRdYraxWdP0dUvWv0-qqjZu4jP3UVLVOnIUGygc3N_UiFjJvU_0lDjFdaY9r_rKEojLY20wriXrls3uSnW6i4osyCNNI76oePFnuwOKTydsWsn1XMM8zCyfxr__Wp_ArXOllgjjzJid41eUgUw5Rf5M07NdJv-K3UnR4XfhOyWZGo3gCBIZeKsYkGJWfR9Zg9Uc7Dt-3EXkvRshT22DpN_Fagib_uICI1lN8lZFeIh7GebjRI3WWevO8Ut0l3qJONv4IRus9lI3zGZtu0Srn2aWIZp7Xpotklue2G8lZ394J2H4UFIjcSlTS0ZooPTqn7ysTWaV5f5rbB6QiX8utnilsxDzyf4bpuK2JHJuJW4VWb2EmONC7vjEOai83xy4tlpKGDTAx9Ffzz4HD2iAC34JSfyjZu9r2wAn4Y6uigOoYzPdOSeIFldjahZax8K0LHOCOP4jgZIglj6iqVOd8B8qfAJ-7XUlrk1X40jX4rRYBT958efvccRqIG7gcZVkRLeYpFjdwl80_q-gWXvpkjWPXJwYjp8KuEXnJiKsTquS9rIIGQ2wEgHXBVOzeWM8H92rSHIiHX0ODJWNt30Jgd6VnS1mdIeUFXGWHQx_QUzrUbLd2yy9xnfortMeJAIf2rldawyfEaII5VIjX48NFq2kBm8q1ivwdy2_bPjjhIfARWMsfHKFfyyZ0Asq_HUb0gkrTQcVSXFvW-edwH1IPnq0y82cuiCs21fwNHsVFAqlnmYMGwM8z2cF2TmsZp1Dn7e9PcdBNJ17zw==Ic'
-let jctqSignDoubleBody = 'p=kGN6hU7ZYPOA=7uL9QbJxXLRkFZO09y8O5ejVM72EFwF4U98NzM8hdAo_Jo7CzNrfLbcrhsyzZyx_bUCdVCKLL0b_swyvTl5TQq0BenYh-375g29EtUw5OfODfDDsxmHeuFIvEqVuw5dDd3LQTFg7fZRr0kwuf_2ORjZJRdm4KAeXPYgxEEhp8Psbz4nkMIFNFMxzZYI1uXkK5-yucxqa3a_K0rtYoofx_ey2fSdfGfrIS25NPHuv-fzp2S75Pr5S6VxRVLtzbsXAgQuc9trVZpwgBURZXzudGvbqKOwNgUEy-5z8Ye_oIpjkOeVAjMGMfKeD0qNkl80xuJaFH8r3kqNOjYZ2KE5VZN_mXGdcLG2xN2rAaKakLuOcpRlJ55M_JgAvefWp8NLjaW48FnP0NYLiLiDmfYRW45BW-9OAw5EM4uJ1NMKg69MkYGhRSy4RsrzP6RJkIkv6RbAkYN59kDmGsERBB3uJTSvvNMjCsLe2iiFYOGsU3uaLM6qGC3voTdmFpXTVRTgB-I9-NnZmrecdf3KM20er7GPHe4AnRVB8kbSURf-rQgCI_CTLoonPBAsEsKNSdaOXEVzZCit-y_FgiQ74pWstskCFdm_XuDl9cXImvwyEHpyuRKaim5IZZcHLUjd1nKCJIOZ9GM1XKoRaovfm6rB38T1pzTxGSLSLGK4TABxCS6wphNtK8iZ6aRrkPdjXS9TExec_uda3Vz3BW-NP8G2ZPQDqarFRZFQGvkKJe-X3dzQsJID5J3JZjI-euRT7jjj1qXkuj30dC_S_Sub5FwcTa_JmcMqSObBu3LC-j0i9DC9ri_5FWUe1rcxPcNvVq9vt69rw42PbIk-LBTt92QFHwoHteJowa9dHnr6DmMTT8l9L98QsZyHywwuW0o9bLfaCNpLo-1nQXAe29HTERshcOitK6jWMlTUdShbHtQDKvzWrjnRrgEvyIQ1Uzx8KoYzTSOWIdJSu3mpv5s4Su0yQY1V0xVt7oprodCqd4WhyKMPKPtOhAoowo1-iCOlyJ0bZaMNrtWoq6foucEm3y3apETfVaM7pC3UcvZGmR6RbloqzzxCpuhUrh-kNZ508i33zKn08t033jPbhLQGhVnFFflTUaebbn7_v-QU-kjLOpFPaXE-O6vTeJd2XEVsJQp8td0HgKGeybAw_AahDStPrHCV6evp2mAPuqmztCP3GksKqlYpXBFJwIQseC7ytNBo24y9ezNiAYylCTxUxQUkLht_-BPsCUitey'
 let jctqCookie = 'access=4G&app-version=8.3.8.1&app_name=jckd_app&app_version=8.3.8.1&carrier=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&channel=c1005&device_brand=SMARTISAN&device_id=51426980&device_model=SM919&device_platform=android&device_type=android&dpi=560&inner_version=202111161441&language=zh-CN&memory=5&mi=0&mobile_type=1&net_type=2&network_type=4G&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&request_time=1637564766&resolution=1440x2560&rom_version=MXB48T%20release-keys&s_ad=GFsSOfXcbejQ%3DzsLToxWkbStrMy-l4aAFoKU_B0MeXK7mH&s_im=8pnoxxlgBSPY%3DftJU16u0felTt5IexLbZSA%3D%3D&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&storage=52.62&subv=1.2.2&uid=55242014&version_code=838&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdl2qFooaZr6m6apqGcXY&zqkey_id=67a2b7bd2cca47bfdd05405d10af9fe6&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhY2Nlc3MiOiI0RyIsImFwcC12ZXJzaW9uIjoiOC4zLjguMSIsImFwcF9uYW1lIjoiamNrZF9hcHAiLCJhcHBfdmVyc2lvbiI6IjguMy44LjEiLCJjYXJyaWVyIjoiJUU0JUI4JUFEJUU1JTlCJUJEJUU3JTk0JUI1JUU0JUJGJUExIiwiY2hhbm5lbCI6ImMxMDA1IiwiZGV2aWNlX2JyYW5kIjoiU01BUlRJU0FOIiwiZGV2aWNlX2lkIjoiNTE0MjY5ODAiLCJkZXZpY2VfbW9kZWwiOiJTTTkxOSIsImRldmljZV9wbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfdHlwZSI6ImFuZHJvaWQiLCJkcGkiOiI1NjAiLCJpbm5lcl92ZXJzaW9uIjoiMjAyMTExMTYxNDQxIiwibGFuZ3VhZ2UiOiJ6aC1DTiIsIm1lbW9yeSI6IjUiLCJtaSI6IjAiLCJtb2JpbGVfdHlwZSI6IjEiLCJuZXRfdHlwZSI6IjIiLCJuZXR3b3JrX3R5cGUiOiI0RyIsIm9wZW51ZGlkIjoiNmY5YzIxODAyZTllN2Q2OSIsIm9zX2FwaSI6IjIzIiwib3NfdmVyc2lvbiI6Ik1YQjQ4VCtyZWxlYXNlLWtleXMiLCJyZXF1ZXN0X3RpbWUiOiIxNjM3NTY0NzY2IiwicmVzb2x1dGlvbiI6IjE0NDB4MjU2MCIsInJvbV92ZXJzaW9uIjoiTVhCNDhUK3JlbGVhc2Uta2V5cyIsInNfYWQiOiJHRnNTT2ZYY2JlalElM0R6c0xUb3hXa2JTdHJNeS1sNGFBRm9LVV9CME1lWEs3bUgiLCJzX2ltIjoiOHBub3h4bGdCU1BZJTNEZnRKVTE2dTBmZWxUdDVJZXhMYlpTQSUzRCUzRCIsInNpbSI6IjEiLCJzbV9kZXZpY2VfaWQiOiIyMDIxMDkyOTE2MDUyNzdjZDJlMzVjNzkxMWJjYmIzZjMwYTBmZWNjMjhhMTJiMDFiMjBiODMxYTIxOTc0NCIsInN0b3JhZ2UiOiI1Mi42MiIsInN1YnYiOiIxLjIuMiIsInVpZCI6IjU1MjQyMDE0IiwidmVyc2lvbl9jb2RlIjoiODM4IiwienFrZXkiOiJNREF3TURBd01EQXdNSkNNcE4tdzA5V3RnNS1CYjM2ZWg2Q1BxSHVhbEllamw2LUZyV0t3elhXeGhYeXA0TERQeUdsOW9ucWtqM1pxWUphOFk4OThuYWpXc0p1cFpMRGRsMnFGb29hWnI2bTZhcHFHY1hZIiwienFrZXlfaWQiOiI2N2EyYjdiZDJjY2E0N2JmZGQwNTQwNWQxMGFmOWZlNiJ9.cSD8O3FX7XlGWPidJpV-JvF_2ttO5yqFCAgO4k-QM9X-g2HNqTLKH2XXqWJfB8q7Fa-_VghAidoGUhe-7wS31A'
-let jctqBoxbody = ''
+let jctqBubbleBody = ''
+let jctqGiveBoxBody = ''
 
-let jctqRewardBodyArr = []
-let jctqSignDoubleBodyArr = []
-let jctqWithdrawArr = []
 let jctqCookieArr = []
+let jctqBubbleBodyArr = []
+let jctqGiveBoxBodyArr = []
 
-let withdrawSuccess = 0
+let refHotShare = 'http://tq.xunsl.com/h5/hotShare/?'
+let refRotory = 'https://tq.xunsl.com/html/rotaryTable/index.html?keyword_wyq=woyaoq.com&'
+
 
 ///////////////////////////////////////////////////////////////////
 
@@ -52,50 +46,28 @@ let withdrawSuccess = 0
     {
         await checkEnv()
         
-        numBoxbody = jctqRewardBodyArr.length
-        console.log(`找到${numBoxbody}个签到/奖励body`)
-        
-        for(let i=0; i<numBoxbody; i++) {
-            let rewardBody = jctqRewardBodyArr[i]
-            await toGetReward(rewardBody,i)
-            await $.wait(2000)
-        }
-        /*
-        numBoxbody = jctqSignDoubleBodyArr.length
-        console.log(`找到${numBoxbody}个签到翻倍body，观看32秒视频后开始领取下一个`)
-        
-        for(let i=0; i<numBoxbody; i++) {
-            let rewardBody = jctqSignDoubleBodyArr[i]
-            await $.wait(32000)
-            await toDouble(rewardBody)
-        }
-        */
-        if(jctqWithdrawFlag > 0 && jctqWithdrawArr.length > 0) {
-            numBoxbody = jctqWithdrawArr.length
-            console.log(`找到${numBoxbody}个提现body`)
-            
-            for(let i=0; i<numBoxbody; i++) {
-                let withBody = jctqWithdrawArr[i]
-                await withdraw(withBody)
-                await $.wait(1000)
-            }
-        } else if(jctqWithdrawFlag == 0) {
-            console.log(`你设置了不自动提现`)
-        } else if(jctqWithdrawArr.length == 0) {
-            console.log(`没有找到提现body`)
-        }
-        
         numBoxbody = jctqCookieArr.length
         console.log(`找到${numBoxbody}个cookie`)
         
         for(let i=0; i<numBoxbody; i++) {
-            notifyStr += `\n============= 账户${i+1} =============\n`
-            await getBalance(jctqCookieArr[i])
+            console.log(`============= 账户${i+1} =============`)
+            userCookie = jctqCookieArr[i]
+            
+            await queryShareStatus()
+            await $.wait(1000)
+            
+            await queryGiveBoxStatus()
+            await $.wait(1000)
+            
+            await queryBubbleStatus()
+            await $.wait(1000)
+            
+            await getTaskListByWeather()
+            await $.wait(1000)
+            
+            await queryRotaryTable()
             await $.wait(1000)
         }
-        
-        await showmsg()
-        
     }
   
 
@@ -121,7 +93,7 @@ async function showmsg() {
 async function checkEnv() {
     
     if(jctqCookie) {
-        if(jctqCookie.indexOf('@') > -1) {
+        if(jctqCookie.indexOf('&') > -1) {
             let jctqCookies = jctqCookie.split('@')
             for(let i=0; i<jctqCookies.length; i++) {
                 jctqCookieArr.push(replaceCookie(jctqCookies[i]))
@@ -132,47 +104,25 @@ async function checkEnv() {
         }
     }
     
-    if(jctqWithdraw) {
-        if(jctqWithdraw.indexOf('&') > -1) {
-            let jctqWithdraws = jctqWithdraw.split('&')
-            for(let i=0; i<jctqWithdraws.length; i++) {
-                jctqWithdrawArr.push(jctqWithdraws[i])
+    if(jctqBubbleBody) {
+        if(jctqBubbleBody.indexOf('&') > -1) {
+            let jctqBubbleBodyArrs = jctqBubbleBody.split('&')
+            for(let i=0; i<jctqBubbleBodyArrs.length; i++) {
+                jctqBubbleBodyArr.push(jctqBubbleBodyArrs[i])
             }
         } else {
-            jctqWithdrawArr.push(jctqWithdraw)
+            jctqBubbleBodyArr.push(jctqBubbleBody)
         }
     }
     
-    if(jctqQdBody) {
-        if(jctqQdBody.indexOf('&') > -1) {
-            let jctqQdBodyArr = jctqQdBody.split('&')
-            for(let i=0; i<jctqQdBodyArr.length; i++) {
-                jctqRewardBodyArr.push(jctqQdBodyArr[i])
+    if(jctqGiveBoxBody) {
+        if(jctqGiveBoxBody.indexOf('&') > -1) {
+            let jctqGiveBoxBodyArrs = jctqGiveBoxBody.split('&')
+            for(let i=0; i<jctqGiveBoxBodyArrs.length; i++) {
+                jctqGiveBoxBodyArr.push(jctqGiveBoxBodyArrs[i])
             }
         } else {
-            jctqRewardBodyArr.push(jctqQdBody)
-        }
-    }
-    
-    if(jctqBoxbody) {
-        if(jctqBoxbody.indexOf('&') > -1) {
-            let jctqBoxbodyArr = jctqBoxbody.split('&')
-            for(let i=0; i<jctqBoxbodyArr.length; i++) {
-                jctqRewardBodyArr.push(jctqBoxbodyArr[i])
-            }
-        } else {
-            jctqRewardBodyArr.push(jctqBoxbody)
-        }
-    }
-    
-    if(jctqSignDoubleBody) {
-        if(jctqSignDoubleBody.indexOf('&') > -1) {
-            let jctqSignDoubleBodys = jctqSignDoubleBody.split('&')
-            for(let i=0; i<jctqSignDoubleBodys.length; i++) {
-                jctqSignDoubleBodyArr.push(jctqSignDoubleBodys[i])
-            }
-        } else {
-            jctqSignDoubleBodyArr.push(jctqSignDoubleBody)
+            jctqGiveBoxBodyArr.push(jctqGiveBoxBody)
         }
     }
 }
@@ -192,120 +142,393 @@ function replaceCookie(jctqCookieItem) {
 
 ///////////////////////////////////////////////////////////////////
 
-//领取奖励
-async function toGetReward(rewardBody,idx) {
+//时段转发以及转发页面红包冷却查询 -- 30分钟一次
+async function queryShareStatus() {
     let caller = printCaller()
-    let url = 'https://tq.xunsl.com/v5/CommonReward/toGetReward.json'
-    let urlObject = populatePostUrl(url,rewardBody)
+    let url = 'http://tq.xunsl.com/WebApi/ShareNew/bereadExtraList'
+    let urlObject = populatePostUrl(url,refHotShare,userCookie)
     await httpPost(urlObject,caller)
     let result = httpResult;
     if(!result) return
     
-    if(result.success == true) {
-        if(result.items && result.items.score) {
-            let signStr = ''
-            if(result.items.title && result.items.title.indexOf('签到成功') > -1) signStr = '签到'
-            console.log(`领取第${idx+1}个奖励成功，${signStr}获得${result.items.score}金币`)
-            await $.wait(32000)
-            await toDouble(rewardBody)
+    let curTime = new Date()
+    let currentHour = curTime.getHours()
+    let action = ''
+    if(currentHour>=5 && currentHour<10) {
+        action = 'beread_extra_reward_one'
+    } else if(currentHour>=11 && currentHour<16) {
+        action = 'beread_extra_reward_two'
+    } else if(currentHour>=17 && currentHour<22) {
+        action = 'beread_extra_reward_three'
+    }
+    
+    if(result.code == 200) {
+        if(result.data && result.data.taskList && Array.isArray(result.data.taskList)) {
+            let taskList = result.data.taskList
+            for(let i=0; i<taskList.length; i++) {
+                let taskItem = taskList[i]
+                if(taskItem.action.indexOf('time_packet_reward') > -1) {
+                    if(taskItem.status == 1) {
+                        console.log(`\n转发页面定时宝箱可领取`)
+                        await $.wait(1000)
+                        await getRewardShareBox()
+                    } else {
+                        let cdTime = taskItem.total_time - taskItem.countdown
+                        console.log(`\n转发页面定时宝箱冷却时间：${cdTime}秒`)
+                        if(cdTime < 90) {
+                            let waitTime = cdTime+1
+                            console.log(`\n等待${waitTime}秒后尝试领取`)
+                            await $.wait(waitTime*1000)
+                            await queryShareStatus()
+                        }
+                    }
+                }
+                if(action && taskItem.action.indexOf(action) > -1) {
+                    if(taskItem.status == 0) {
+                        console.log(`\n开始做${taskItem.name}转发任务`)
+                        await $.wait(1000)
+                        await listsNewTag()
+                        await $.wait(1000)
+                        await execExtractTask(taskItem.action,taskItem.name)
+                    } else {
+                        console.log(`\n${taskItem.name}转发已完成`)
+                    }
+                }
+            }
         }
     } else {
-        console.log(`领取第${idx+1}个奖励失败：${result.message}`)
+        console.log(`\n转发页面查询失败：${result.msg}`)
     }
 }
 
-//签到翻倍
-async function toDouble(rewardBody) {
+//转发页面红包领取 -- 30分钟一次
+async function getRewardShareBox() {
     let caller = printCaller()
-    let url = 'https://tq.xunsl.com/v5/CommonReward/toDouble.json'
-    let urlObject = populatePostUrl(url,rewardBody)
+    let url = 'http://tq.xunsl.com/WebApi/TimePacket/getReward'
+    let urlObject = populatePostUrl(url,refHotShare,userCookie)
     await httpPost(urlObject,caller)
     let result = httpResult;
     if(!result) return
     
-    if(result.success == true) {
-        if(result.items && result.items.score) {
-            console.log(`签到翻倍成功，获得${result.items.score}金币`)
-        }
+    if(result.code == 1) {
+        console.log(`领取转发页面定时宝箱成功：获得${result.data.score}金币`)
     } else {
-        console.log(`签到翻倍失败：${result.message}`)
+        console.log(`领取转发页面定时宝箱失败：${result.msg}`)
     }
 }
 
-//今日收益
-async function getBalance(cookie) {
+//转发页面列表
+async function listsNewTag() {
     let caller = printCaller()
-    let url = 'https://tq.xunsl.com/wap/user/balance?keyword_wyq=woyaoq.com&' + cookie
-    let urlObject = populateGetUrl(url)
+    let url = 'http://tq.xunsl.com/WebApi/ArticleTop/listsNewTag'
+    let urlObject = populatePostUrl(url,refHotShare,userCookie)
+    await httpPost(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.status == 1) {
+        if(result.data && result.data.items && Array.isArray(result.data.items)) {
+            let shareIdx = Math.floor(Math.random()*result.data.items.length)
+            let newsItem = result.data.items[shareIdx]
+            await $.wait(1000)
+            await getShareArticleReward(newsItem.id)
+        }
+    } else {
+        console.log(`查询转发页面列表失败：${result.msg}`)
+    }
+}
+
+//转发文章
+async function getShareArticleReward(articleId) {
+    let caller = printCaller()
+    let url = 'http://tq.xunsl.com/WebApi/ShareNew/getShareArticleReward'
+    let reqBody = userCookie + '&article_id=' + articleId
+    let urlObject = populatePostUrl(url,refHotShare,reqBody)
+    await httpPost(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.status == 1) {
+        if(result.data.share == 1) {
+            console.log(`转发文章成功`)
+        }
+    } else {
+        console.log(`转发文章失败：${result.msg}`)
+    }
+}
+
+//转发时段奖励
+async function execExtractTask(action,name) {
+    let caller = printCaller()
+    let url = 'http://tq.xunsl.com/WebApi/ShareNew/execExtractTask'
+    let reqBody = userCookie + '&action=' + action
+    let urlObject = populatePostUrl(url,refHotShare,reqBody)
+    await httpPost(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.code == 200) {
+        console.log(`领取${name}转发奖励成功`)
+    } else {
+        console.log(`领取${name}转发奖励失败：${result.msg}`)
+    }
+}
+
+//首页气泡红包查询
+async function queryBubbleStatus() {
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/v17/weather/index.json?' + userCookie
+    let urlObject = populateGetUrl(url,refHotShare)
     await httpGet(urlObject,caller)
     let result = httpResult;
     if(!result) return
     
-    if(result.status == 0) {
-        notifyStr += `【账号昵称】：r\n`
-        notifyStr += `【金币总数】：${result.user.score}\n`
-        notifyStr += `【今日收益】：${result.user.today_score}\n`
-        for(let i=0; i<result.history.length; i++) {
-            let rewardItem = result.history[i]
-            if(rewardItem.newdate.indexOf('今日收益') > -1) {
-                for(let j=0; j<rewardItem.group.length; j++) {
-                    let groupItem = rewardItem.group[j]
-                    notifyStr += `【${groupItem.name}】：${groupItem.money}\n`
+    if(result.success == true) {
+        let numBody = jctqBubbleBodyArr.length
+        if(numBody > 0) {
+            if(result.items && result.items.bubble && Array.isArray(result.items.bubble)) {
+                let bubbleList = result.items.bubble
+                let numBubble = bubbleList.length
+                console.log(`\n共有${numBubble}个气泡红包可以领取，找到${numBody}个气泡和翻倍body，开始尝试领取`)
+                for(let i=0; i<numBody; i++) {
+                    let bubbleBodyItem = jctqBubbleBodyArr[i]
+                    await $.wait(500)
+                    await getRewardBubble(bubbleBodyItem)
+                    if(i != numBody-1) {
+                        let randomTime = Math.floor(Math.random()*2000)+32000
+                        console.log(`\n随机延迟${randomTime}ms后尝试领取下一个`)
+                        await $.wait(randomTime)
+                    }
                 }
-                break;
+            } else {
+                console.log(`\n没有可领取的首页气泡红包`)
             }
+        } else {
+            console.log(`\n没有找到首页气泡红包和翻倍body，如果需要请手动领取和观看翻倍视频获取body`)
         }
     } else {
-        console.log(`查询今日收益失败：${result.message}`)
+        console.log(`\n首页气泡红包查询失败：${result.msg}`)
     }
 }
 
-//提现
-async function withdraw(withBody) {
+//首页气泡红包领取/翻倍
+async function getRewardBubble(bubbleBodyItem) {
     let caller = printCaller()
-    let url = 'https://tq.xunsl.com/v5/wechat/withdraw2.json '
-    let urlObject = populatePostUrl(url,withBody)
+    let url = 'https://tq.xunsl.com/v5/weather/giveTimeInterval.json'
+    let urlObject = populatePostUrl(url,refHotShare,bubbleBodyItem)
     await httpPost(urlObject,caller)
     let result = httpResult;
     if(!result) return
     
-    if(result.success == true) {
-        console.log(`=======提现成功=======`)
-        notifyStr += `=======提现成功=======\n`
+    if(result.status == 1) {
+        console.log(`领取首页气泡红包/翻倍成功：获得${result.items.score}金币`)
     } else {
-        console.log(`提现失败：${result.message}`)
+        console.log(`领取首页气泡红包/翻倍失败：${result.message}`)
     }
 }
 
+//福利页面定时宝箱查询
+async function queryGiveBoxStatus() {
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/v17/Weather/getBoxByweather.json?' + userCookie
+    let urlObject = populateGetUrl(url,refHotShare)
+    await httpGet(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.success == true) {
+        let numBody = jctqGiveBoxBodyArr.length
+        if(numBody > 1) {
+            if(result.items.status == 1) {
+                console.log(`\n福利页面定时宝箱可领取，找到${numBody}个宝箱body，开始尝试领取`)
+                for(let i=0; i<numBody; i++) {
+                    let giveBoxBodyItem = jctqGiveBoxBodyArr[i]
+                    await $.wait(500)
+                    await getRewardGiveBox(giveBoxBodyItem)
+                    if(i != numBody-1) {
+                        let randomTime = Math.floor(Math.random()*2000)+32000
+                        console.log(`\n随机延迟${randomTime}ms后尝试领取下一个`)
+                        await $.wait(randomTime)
+                    }
+                }
+            } else {
+                let cdTime = result.items.count_down
+                console.log(`\n福利页面定时宝箱冷却时间：${cdTime}秒`)
+                if(cdTime < 90) {
+                    let waitTime = cdTime+1
+                    console.log(`\n等待${waitTime}秒后尝试领取`)
+                    await $.wait(waitTime*1000)
+                    await queryGiveBoxStatus()
+                }
+            }
+        } else {
+            console.log(`\n没找到福利页面宝箱body，如果需要请手动领取和观看翻倍视频获取body`)
+        }
+    } else {
+        console.log(`\n福利页面定时宝箱查询失败：${result.msg}`)
+    }
+}
+
+//福利页面定时宝箱领取
+async function getRewardGiveBox(giveBoxBodyItem) {
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/v5/Weather/giveBoxOnWeather.json'
+    let urlObject = populatePostUrl(url,refHotShare,giveBoxBodyItem)
+    await httpPost(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.status == 1) {
+        console.log(`领取福利页面定时宝箱成功：获得${result.items.score}金币`)
+    } else {
+        console.log(`领取福利页面定时宝箱失败：${result.message}`)
+    }
+}
+
+//抽奖状态查询
+async function queryRotaryTable() {
+    rndtime = Math.floor(new Date().getTime())
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/WebApi/RotaryTable/getData?_='+rndtime
+    let urlObject = populatePostUrl(url,refRotory,userCookie)
+    await httpPost(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.status == 1) {
+        console.log(`\n准备抽奖，当前已抽奖：${result.data.opened}次，剩余抽奖次数：${result.data.remainTurn}次`)
+        numTurn = result.data.remainTurn > 5 ? 5 : result.data.remainTurn
+        if(numTurn > 0) {
+            for(let i=0; i<numTurn; i++) {
+                await $.wait(Math.floor(Math.random()*1000)+1000)
+                await turnRotary()
+            }
+        }
+        numOpen = result.data.opened + numTurn
+        if(Array.isArray(result.data.chestOpen)) {
+            let chestOpen = result.data.chestOpen
+            for(let i=0; i<chestOpen.length; i++) {
+                boxItem = chestOpen[i]
+                if(boxItem.received == 0 && numOpen >= boxItem.times) {
+                    randomTime = Math.floor(Math.random()*5000)+30000
+                    console.log(`随机延迟 ${randomTime}ms 看视频开抽奖宝箱`)
+                    await $.wait(randomTime)
+                    await chestReward(i+1)
+                }
+            }
+        }
+    } else {
+        console.log(`抽奖次数查询失败：${result.msg}`)
+    }
+}
+
+//抽奖宝箱
+async function chestReward(idx) {
+    rndtime = Math.floor(new Date().getTime())
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/WebApi/RotaryTable/chestReward?_='+rndtime
+    let reqBody = userCookie + '&num=' + idx
+    let urlObject = populatePostUrl(url,refRotory,reqBody)
+    await httpPost(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.status == 1) {
+        console.log(`开抽奖第${idx}个宝箱获得${result.data.score}金币`)
+    } else {
+        console.log(`开抽奖宝箱失败：${result.msg}`)
+    }
+}
+
+//抽奖
+async function turnRotary() {
+    rndtime = Math.floor(new Date().getTime())
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/WebApi/RotaryTable/turnRotary?_='+rndtime
+    let urlObject = populatePostUrl(url,refRotory,userCookie)
+    await httpPost(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.status == 1) {
+        console.log(`抽奖获得${result.data.score}金币，剩余抽奖次数${result.data.remainTurn}`)
+    } else {
+        console.log(`抽奖失败：${result.msg}`)
+    }
+}
+
+//查询日常任务进度
+async function getTaskListByWeather() {
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/v17/NewTask/getTaskListByWeather.json?' + userCookie
+    let urlObject = populateGetUrl(url,refHotShare)
+    await httpGet(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.success == true) {
+        if(Array.isArray(result.items.daily)) {
+            for(let i=0; i<result.items.daily.length; i++) {
+                let dailyItem = result.items.daily[i]
+                if(dailyItem.id == 10) {
+                    if(dailyItem.title_num < dailyItem.title_total) {
+                        randomTime = Math.floor(Math.random()*5000)+30000
+                        console.log(`\n去刷福利视频，已完成${dailyItem.title_num}次，随机延迟 ${randomTime}ms 看视频`)
+                        await $.wait(randomTime)
+                        await recordVideoNum()
+                    }
+                }
+            }
+        }
+    } else {
+        console.log(`\n任务列表查询错误：${result.message}`)
+    }
+}
+
+//刷福利视频
+async function recordVideoNum() {
+    let caller = printCaller()
+    let url = 'https://tq.xunsl.com/V17/NewTask/recordNum.json?' + userCookie
+    let urlObject = populateGetUrl(url,refHotShare)
+    await httpGet(urlObject,caller)
+    let result = httpResult;
+    if(!result) return
+    
+    if(result.success == true) {
+        console.log(`刷福利视频成功`)
+    } else {
+        console.log(`刷福利视频失败`)
+    }
+}
 ////////////////////////////////////////////////////////////////////
-function populatePostUrl(url,reqBody){
+function populatePostUrl(url,referer,reqBody){
     let rndtime = Math.floor(new Date().getTime()/1000)
     let urlObject = {
         url: url,
         headers: {
             'request_time' : rndtime,
             'Host' : 'tq.xunsl.com',
-            'device-model' : 'VOG-AL10',
             'device-platform' : 'android',
             'Connection' : 'keep-alive',
             'app-type' : 'jcweather',
+            'Referer' : referer + userCookie,
         },
         body: reqBody
     }
     return urlObject;
 }
 
-function populateGetUrl(url){
+function populateGetUrl(url,referer){
     let rndtime = Math.floor(new Date().getTime()/1000)
     let urlObject = {
         url: url,
         headers: {
             'request_time' : rndtime,
             'Host' : 'tq.xunsl.com',
-            'device-model' : 'VOG-AL10',
             'device-platform' : 'android',
             'Connection' : 'keep-alive',
             'app-type' : 'jcweather',
+            'Referer' : referer + userCookie,
         }
     }
     return urlObject;
