@@ -2,9 +2,10 @@ const $ = new Env('柠檬九章头条');
 let status;
 status = (status = ($.getval("jzreadstatus") || "1") ) > 1 ? `${status}` : ""; // 账号扩展字符
 let jzreadurlArr = [],jzreadcount = ''
-let jzreadurl= $.isNode() ? (process.env.jzreadurl ? process.env.jzreadurl : "") : ($.getdata('jzreadurl') ? $.getdata('jzreadurl') : "")
+//let jzreadurl= $.isNode() ? (process.env.jzreadurl ? process.env.jzreadurl : "") : ($.getdata('jzreadurl') ? $.getdata('jzreadurl') : "")
 let cashtx= $.isNode() ? (process.env.cashtx ? process.env.cashtx : "") : ($.getdata('cashtx') ? $.getdata('cashtx') : "")
 let jzreadurls = "DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp"
+let jzreadurl = 'DyaNsFhj9IAJaWRW4a_zPd_fiFZPwBSp'
 const logs =0;
 
 var hours = new Date().getHours();
