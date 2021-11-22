@@ -30,7 +30,7 @@ let jctqWithdraw =       ($.isNode() ? process.env.jctqWithdraw       : $.getdat
 
 let jctqQdBody = 'p=X9XQc_gCBVVg=aTDrO5aIwhCAKNZRuv2ueMhw7Zcg5h42a1Aw5MI2lGZvjmFuMQvZOj2o4UjxSd86l72fVMUiU_6sSpeZAxhRviY20ZC7mgGgueJIFjx5GX0ZToO3ebbCYHc_iyZ5MJNtcaKmh07nH-HAIks7fmcvGfxlK_6dWdF4KtPIAM9YR4TC0el5vbBkOjocpNT0OpLde5E518qmYEmj0qb5_G-gmWgZ2aaZTurqbaV7-q2rwkV4A-aNko1H0IRW_1QYzGEX80XpVgrDIVnx6WbaJAYwQmjWnHD1SNjD3i0bJsTDU9G0pPIll08pf3_LXuzwBNaIim0bS6rP7MJOB75d8yLgOBwRRMWmT3Kx_7prf1I5XFyCrQbBlsbaQ8acTv8y1vmEnyxkThRZWz4Rv2fVAZVHTZEWL_2b6wPAGZhmgiHX8iUhwtN5MyopTTOBxW9rskqKfOaxg_NMVfRdYraxWdP0dUvWv0-qqjZu4jP3UVLVOnIUGygc3N_UiFjJvU_0lDjFdaY9r_rKEojLY20wriXrls3uSnW6i4osyCNNI76oePFnuwOKTydsWsn1XMM8zCyfxr__Wp_ArXOllgjjzJid41eUgUw5Rf5M07NdJv-K3UnR4XfhOyWZGo3gCBIZeKsYkGJWfR9Zg9Uc7Dt-3EXkvRshT22DpN_Fagib_uICI1lN8lZFeIh7GebjRI3WWevO8Ut0l3qJONv4IRus9lI3zGZtu0Srn2aWIZp7Xpotklue2G8lZ394J2H4UFIjcSlTS0ZooPTqn7ysTWaV5f5rbB6QiX8utnilsxDzyf4bpuK2JHJuJW4VWb2EmONC7vjEOai83xy4tlpKGDTAx9Ffzz4HD2iAC34JSfyjZu9r2wAn4Y6uigOoYzPdOSeIFldjahZax8K0LHOCOP4jgZIglj6iqVOd8B8qfAJ-7XUlrk1X40jX4rRYBT958efvccRqIG7gcZVkRLeYpFjdwl80_q-gWXvpkjWPXJwYjp8KuEXnJiKsTquS9rIIGQ2wEgHXBVOzeWM8H92rSHIiHX0ODJWNt30Jgd6VnS1mdIeUFXGWHQx_QUzrUbLd2yy9xnfortMeJAIf2rldawyfEaII5VIjX48NFq2kBm8q1ivwdy2_bPjjhIfARWMsfHKFfyyZ0Asq_HUb0gkrTQcVSXFvW-edwH1IPnq0y82cuiCs21fwNHsVFAqlnmYMGwM8z2cF2TmsZp1Dn7e9PcdBNJ17zw==Ic'
 let jctqSignDoubleBody = 'p=kGN6hU7ZYPOA=7uL9QbJxXLRkFZO09y8O5ejVM72EFwF4U98NzM8hdAo_Jo7CzNrfLbcrhsyzZyx_bUCdVCKLL0b_swyvTl5TQq0BenYh-375g29EtUw5OfODfDDsxmHeuFIvEqVuw5dDd3LQTFg7fZRr0kwuf_2ORjZJRdm4KAeXPYgxEEhp8Psbz4nkMIFNFMxzZYI1uXkK5-yucxqa3a_K0rtYoofx_ey2fSdfGfrIS25NPHuv-fzp2S75Pr5S6VxRVLtzbsXAgQuc9trVZpwgBURZXzudGvbqKOwNgUEy-5z8Ye_oIpjkOeVAjMGMfKeD0qNkl80xuJaFH8r3kqNOjYZ2KE5VZN_mXGdcLG2xN2rAaKakLuOcpRlJ55M_JgAvefWp8NLjaW48FnP0NYLiLiDmfYRW45BW-9OAw5EM4uJ1NMKg69MkYGhRSy4RsrzP6RJkIkv6RbAkYN59kDmGsERBB3uJTSvvNMjCsLe2iiFYOGsU3uaLM6qGC3voTdmFpXTVRTgB-I9-NnZmrecdf3KM20er7GPHe4AnRVB8kbSURf-rQgCI_CTLoonPBAsEsKNSdaOXEVzZCit-y_FgiQ74pWstskCFdm_XuDl9cXImvwyEHpyuRKaim5IZZcHLUjd1nKCJIOZ9GM1XKoRaovfm6rB38T1pzTxGSLSLGK4TABxCS6wphNtK8iZ6aRrkPdjXS9TExec_uda3Vz3BW-NP8G2ZPQDqarFRZFQGvkKJe-X3dzQsJID5J3JZjI-euRT7jjj1qXkuj30dC_S_Sub5FwcTa_JmcMqSObBu3LC-j0i9DC9ri_5FWUe1rcxPcNvVq9vt69rw42PbIk-LBTt92QFHwoHteJowa9dHnr6DmMTT8l9L98QsZyHywwuW0o9bLfaCNpLo-1nQXAe29HTERshcOitK6jWMlTUdShbHtQDKvzWrjnRrgEvyIQ1Uzx8KoYzTSOWIdJSu3mpv5s4Su0yQY1V0xVt7oprodCqd4WhyKMPKPtOhAoowo1-iCOlyJ0bZaMNrtWoq6foucEm3y3apETfVaM7pC3UcvZGmR6RbloqzzxCpuhUrh-kNZ508i33zKn08t033jPbhLQGhVnFFflTUaebbn7_v-QU-kjLOpFPaXE-O6vTeJd2XEVsJQp8td0HgKGeybAw_AahDStPrHCV6evp2mAPuqmztCP3GksKqlYpXBFJwIQseC7ytNBo24y9ezNiAYylCTxUxQUkLht_-BPsCUitey'
-let jctqCookie = 'access=4G&app_name=jckd_app&app_version=8.3.8.1&carrier=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&channel=c1005&device_brand=SMARTISAN&device_id=51426980&device_model=SM919&device_platform=android&device_type=android&dpi=560&inner_version=202111161441&language=zh-CN&memory=5&mi=0&mobile_type=1&net_type=2&network_type=4G&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&phone_sim=1&request_time=1637585951&resolution=1440x2560&rom_version=MXB48T%20release-keys&s_ad=sAj8L0ZF5qmA%3D2FfZ9Fj30HNp8OHiWhxNj-iqkv9hJOPM4p&s_im=qTptMzLWs9eU%3DsaqKvZn59xshTqhOJlgdLw%3D%3D&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&storage=52.62&uid=55242014&version_code=838&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdl2qGfHaasKnMapqGcXY&zqkey_id=51b8287423c05c290f69d61ffd6891d9&sign=b0fc4b48b42e76f4bc812ad91d953ef9'
+let jctqCookie = 'access=4G&app-version=8.3.8.1&app_name=jckd_app&app_version=8.3.8.1&carrier=%E4%B8%AD%E5%9B%BD%E7%94%B5%E4%BF%A1&channel=c1005&device_brand=SMARTISAN&device_id=51426980&device_model=SM919&device_platform=android&device_type=android&dpi=560&inner_version=202111161441&language=zh-CN&memory=5&mi=0&mobile_type=1&net_type=2&network_type=4G&openudid=6f9c21802e9e7d69&os_api=23&os_version=MXB48T%20release-keys&request_time=1637564766&resolution=1440x2560&rom_version=MXB48T%20release-keys&s_ad=GFsSOfXcbejQ%3DzsLToxWkbStrMy-l4aAFoKU_B0MeXK7mH&s_im=8pnoxxlgBSPY%3DftJU16u0felTt5IexLbZSA%3D%3D&sim=1&sm_device_id=202109291605277cd2e35c7911bcbb3f30a0fecc28a12b01b20b831a219744&storage=52.62&subv=1.2.2&uid=55242014&version_code=838&zqkey=MDAwMDAwMDAwMJCMpN-w09Wtg5-Bb36eh6CPqHualIejl6-FrWKwzXWxhXyp4LDPyGl9onqkj3ZqYJa8Y898najWsJupZLDdl2qFooaZr6m6apqGcXY&zqkey_id=67a2b7bd2cca47bfdd05405d10af9fe6&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhY2Nlc3MiOiI0RyIsImFwcC12ZXJzaW9uIjoiOC4zLjguMSIsImFwcF9uYW1lIjoiamNrZF9hcHAiLCJhcHBfdmVyc2lvbiI6IjguMy44LjEiLCJjYXJyaWVyIjoiJUU0JUI4JUFEJUU1JTlCJUJEJUU3JTk0JUI1JUU0JUJGJUExIiwiY2hhbm5lbCI6ImMxMDA1IiwiZGV2aWNlX2JyYW5kIjoiU01BUlRJU0FOIiwiZGV2aWNlX2lkIjoiNTE0MjY5ODAiLCJkZXZpY2VfbW9kZWwiOiJTTTkxOSIsImRldmljZV9wbGF0Zm9ybSI6ImFuZHJvaWQiLCJkZXZpY2VfdHlwZSI6ImFuZHJvaWQiLCJkcGkiOiI1NjAiLCJpbm5lcl92ZXJzaW9uIjoiMjAyMTExMTYxNDQxIiwibGFuZ3VhZ2UiOiJ6aC1DTiIsIm1lbW9yeSI6IjUiLCJtaSI6IjAiLCJtb2JpbGVfdHlwZSI6IjEiLCJuZXRfdHlwZSI6IjIiLCJuZXR3b3JrX3R5cGUiOiI0RyIsIm9wZW51ZGlkIjoiNmY5YzIxODAyZTllN2Q2OSIsIm9zX2FwaSI6IjIzIiwib3NfdmVyc2lvbiI6Ik1YQjQ4VCtyZWxlYXNlLWtleXMiLCJyZXF1ZXN0X3RpbWUiOiIxNjM3NTY0NzY2IiwicmVzb2x1dGlvbiI6IjE0NDB4MjU2MCIsInJvbV92ZXJzaW9uIjoiTVhCNDhUK3JlbGVhc2Uta2V5cyIsInNfYWQiOiJHRnNTT2ZYY2JlalElM0R6c0xUb3hXa2JTdHJNeS1sNGFBRm9LVV9CME1lWEs3bUgiLCJzX2ltIjoiOHBub3h4bGdCU1BZJTNEZnRKVTE2dTBmZWxUdDVJZXhMYlpTQSUzRCUzRCIsInNpbSI6IjEiLCJzbV9kZXZpY2VfaWQiOiIyMDIxMDkyOTE2MDUyNzdjZDJlMzVjNzkxMWJjYmIzZjMwYTBmZWNjMjhhMTJiMDFiMjBiODMxYTIxOTc0NCIsInN0b3JhZ2UiOiI1Mi42MiIsInN1YnYiOiIxLjIuMiIsInVpZCI6IjU1MjQyMDE0IiwidmVyc2lvbl9jb2RlIjoiODM4IiwienFrZXkiOiJNREF3TURBd01EQXdNSkNNcE4tdzA5V3RnNS1CYjM2ZWg2Q1BxSHVhbEllamw2LUZyV0t3elhXeGhYeXA0TERQeUdsOW9ucWtqM1pxWUphOFk4OThuYWpXc0p1cFpMRGRsMnFGb29hWnI2bTZhcHFHY1hZIiwienFrZXlfaWQiOiI2N2EyYjdiZDJjY2E0N2JmZGQwNTQwNWQxMGFmOWZlNiJ9.cSD8O3FX7XlGWPidJpV-JvF_2ttO5yqFCAgO4k-QM9X-g2HNqTLKH2XXqWJfB8q7Fa-_VghAidoGUhe-7wS31A'
 let jctqBoxbody = ''
 
 let jctqRewardBodyArr = []
@@ -231,35 +231,7 @@ async function toDouble(rewardBody) {
         console.log(`签到翻倍失败：${result.message}`)
     }
 }
-//今日收益
-async function getBalance(cookie) {
-    let caller = printCaller()
-    let url = 'https://tq.xunsl.com/v3/user/userinfo.json?' + cookie
-    let urlObject = populateGetUrl(url)
-    await httpGet(urlObject,caller)
-    let result = httpResult;
-    if(!result) return
-    
-    if(result.status == 0) {
-        notifyStr += `【账号昵称】：${result.items.nickname}\n`
-        notifyStr += `【签到结果】：${result.items.sign_status}\n`
-        notifyStr += `【金币总数】：${result.user.score}\n`
-        notifyStr += `【今日收益】：${result.user.today_score}\n`
-        for(let i=0; i<result.history.length; i++) {
-            let rewardItem = result.history[i]
-            if(rewardItem.newdate.indexOf('今日收益') > -1) {
-                for(let j=0; j<rewardItem.group.length; j++) {
-                    let groupItem = rewardItem.group[j]
-                    notifyStr += `【${groupItem.name}】：${groupItem.money}\n`
-                }
-                break;
-            }
-        }
-    } else {
-        console.log(`查询今日收益失败：${result.message}`)
-    }
-}
-/*
+
 //今日收益
 async function getBalance(cookie) {
     let caller = printCaller()
@@ -286,7 +258,7 @@ async function getBalance(cookie) {
         console.log(`查询今日收益失败：${result.message}`)
     }
 }
-*/
+
 //提现
 async function withdraw(withBody) {
     let caller = printCaller()
