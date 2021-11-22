@@ -5,7 +5,7 @@ name: Tset
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/8 0-23 * * *'
+    - cron: '* 1 1 1 1'
   watch:
     types: started
   repository_dispatch:
