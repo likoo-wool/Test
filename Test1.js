@@ -82,9 +82,7 @@ async function checkEnv() {
     
     if(jctqLookStartbody.indexOf('&') > -1) {
         jctqLookStartbodyArr = jctqLookStartbody.split('&')
-    } else if{
-        jctqLookStartbodyArr.push(jctqLookStartbody)
-    } else if($.isNode()){
+    }else if($.isNode()){
     var fs = require("fs");
     jctqLookStartbody = fs.readFileSync("jctqLookStartbody", "utf8");
     if (jctqLookStartbody !== `undefined`) {
@@ -100,11 +98,7 @@ async function checkEnv() {
             for(let i=0; i<jctqCookies.length; i++) {
                 jctqCookieArr.push(replaceCookie(jctqCookies[i]))
             }
-        } else if{
-            
-            jctqCookieArr.push(replaceCookie(jctqCookie))
-        }
-    } else if($.isNode()){
+        }else if($.isNode()){
     var fs = require("fs");
     jctqCookie = fs.readFileSync("jctqCookie.txt", "utf8");
     if (jctqCookie !== `undefined`) {
