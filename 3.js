@@ -60,12 +60,12 @@ async function all() {
             await TaskAD(11);
             await $.wait(randomNum());
         }
-		//提现
+	/*	//提现
 		$.log("【九章头条提现】");
 		await CashAD();
 		await $.wait(1000);
 		await NineWithDraw();
-		await $.wait(1000);		
+		await $.wait(1000);*/		
     }
 	//推送信息
 	if (ts){
