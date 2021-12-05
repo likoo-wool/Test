@@ -27,4 +27,4 @@ jobs:
       - name: '运行 【Test】'
         run: |
           
-          node Test1.js
+          node 4.js
