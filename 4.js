@@ -104,7 +104,7 @@ function NineWithDraw() {
   return new Promise((resolve, reject) => {
     const url = "https://api.st615.com/v1/cash/withdraw-new";
     const headers = {};
-    const body = `token=${Token}&type=1&money=10000`;
+    const body = `token=${Token}&type=1&money=0.3`;
 	var time = new Date().getTime();
 	var txtime=formatDateTime(time);
 	$.log(`${username} 提现时间:${txtime}`);
