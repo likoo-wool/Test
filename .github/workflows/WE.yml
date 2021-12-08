@@ -27,4 +27,4 @@ jobs:
       - name: '运行 【WE】'
         run: |
           
-          node 12.js
+          node zqydddb.js
