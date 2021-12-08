@@ -27,4 +27,4 @@ jobs:
       - name: '运行 【WE】'
         run: |
           
-          node 14.js
+          node 15.js
