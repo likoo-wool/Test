@@ -27,4 +27,4 @@ jobs:
       - name: '运行 【WE】'
         run: |
           
-          node 10.js
+          node 11.js
