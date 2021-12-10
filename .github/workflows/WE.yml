@@ -27,4 +27,4 @@ jobs:
       - name: '运行 【WE】'
         run: |
           
-          node 8-2.js
+          node 8-3.js
