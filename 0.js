@@ -2060,7 +2060,7 @@ function all() {
         return _0x398d50(_0xd251fc, _0xcab610 - -0x535);
     }
     if (K == _0x279115(0x3c0, 'OGVH')) {
-        taskurl = _0x279115(0x340, 'p(uC'), taskheader = '', await taskget(), $['zt'] = DATA;
+        taskurl = _0x279115(0x340, 'p(uC'), taskheader = '', taskget(), $['zt'] = DATA;
         if ($['zt'][_0x58bd94('Q^Tt', 0x1ff)] == 0x1) {
             $[_0x35a83f('RPJ0', 0x2b5)] = !![], zqwzlb = {};
             for (let _0x4bc9f5 = 0x0; _0x4bc9f5 < zqydbodyArr[_0x35a83f('zpIU', 0x2ff)]; _0x4bc9f5++) {
